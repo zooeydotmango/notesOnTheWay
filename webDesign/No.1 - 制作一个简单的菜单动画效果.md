@@ -58,6 +58,6 @@ classList.toggle就完美符合我们的要求：
        div.classList.toggle("visible", i < 10);
                
 ---
-[我的完整代码](https://github.com/zooeydotmango/notesOnTheWay/blob/master/Demo/cssDemo/cssTask01.html)
+[我的完整代码](https://github.com/zooeydotmango/notesOnTheWay/blob/master/Demo/cssDemo/cssTask01.html)  
 [在线显示](https://codepen.io/zooeydotmango/full/LmNJRg/)
 <!-- 哪些学习了之后还有疑问，记录下问题，待解决 -->
