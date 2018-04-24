@@ -49,14 +49,13 @@ classList.toggle就完美符合我们的要求：
 
 `classList.toggle(class, true|false)`在元素中切换类名。  
 
-    toggle第一个参数为要在元素中移除的类名，并返回 false。 
-    如果该类名不存在则会在元素中添加类名，并返回 true。 
-
-    第二个是可选参数，是个布尔值用于设置元素是否强制添加或移除类，不管该类名是否存在。
-    例如：移除一个 class: element.classList.toggle("classToRemove", false); 
-               添加一个 class: element.classList.toggle("classToAdd", true);
-               // 添加/删除 visible，取决于测试条件，i小于10
-               div.classList.toggle("visible", i < 10);
+ toggle第一个参数为要在元素中移除的类名，并返回 false，如果该类名不存在则会在元素中添加类名，并返回 true。  
+       第二个是可选参数，是个布尔值用于设置元素是否强制添加或移除类，不管该类名是否存在。  
+ 例如：  
+       element.classList.toggle("classToRemove", false);   
+       element.classList.toggle("classToAdd", true);  
+       // 添加/删除 visible，取决于测试条件，i小于10  
+       div.classList.toggle("visible", i < 10);
                
 ---
 <!-- 哪些学习了之后还有疑问，记录下问题，待解决 -->
