@@ -3,16 +3,16 @@
 ---
 <!-- 学的哪些比较透彻，说说自己的理解 -->
 - transition过渡属性
-本次demo把动画分成两个部分：   
-先在p和span中都要加上transition的属性   
 
- "前端学院"的背景色过渡成蓝色：
+先在p和span中都要加上transition的属性，本次demo把动画分成两个部分：   
+
+ 1. 文字的背景色过渡成蓝色：
  ```
  p.active{
           color: cornflowerblue;
       }
   ```  
- 文字下的线条从中间延伸至两边：  
+ 2. 文字下的线条从中间延伸至两边：
 ```
  p span{
         width: 0;
@@ -58,4 +58,6 @@ classList.toggle就完美符合我们的要求：
        div.classList.toggle("visible", i < 10);
                
 ---
+[我的完整代码](https://github.com/zooeydotmango/notesOnTheWay/blob/master/Demo/cssDemo/cssTask01.html)
+[在线显示](https://codepen.io/zooeydotmango/full/LmNJRg/)
 <!-- 哪些学习了之后还有疑问，记录下问题，待解决 -->
