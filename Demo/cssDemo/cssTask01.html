@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cssTask01</title>
+</head>
+<style>
+    div{
+        width: 100px;
+        height: 100px;
+        font-size: 20px;
+        margin: 300px auto;
+        text-align: center;
+    }
+    p{
+        padding: 10px;
+        -webkit-transition: all 0.2s ease-in-out;
+        -moz-transition: all 0.2s ease-in-out;
+        -ms-transition: all 0.2s ease-in-out;
+        -o-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+        position: relative;
+    }
+    p span{
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 50%;
+        background: cornflowerblue;
+        -webkit-transition: all 0.2s ease-in-out;
+        -moz-transition: all 0.2s ease-in-out;
+        -ms-transition: all 0.2s ease-in-out;
+        -o-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+    }
+    p.active{
+        color: cornflowerblue;
+    }
+    p.active span{
+        width: 80%;
+        left: 10%;
+    }
+</style>
+<script>
+    window.onload=function () {
+        let op=document.querySelector('p');
+        let oBtn=document.querySelector('input');
+        oBtn.onclick=function () {
+            op.classList.toggle('active');
+        }
+    };
+</script>
+<body>
+<div><p>前端学院<span></span></p><input type="button" value="切换样式"></div>
+</body>
+</html>
