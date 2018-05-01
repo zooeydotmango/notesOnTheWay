@@ -3,9 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>简历</title>
-    <link rel="stylesheet" href="style_1.css">
+    <link rel="stylesheet" href="style_3.css">
+    <script>
+        window.onload=function () {
+            var linkCss = document.getElementsByTagName('link')[0],
+                type1 = document.getElementById('type1'),
+                type2 = document.getElementById('type2'),
+                type3 = document.getElementById('type3');
+            type1.onclick = function(){
+                linkCss.href = "css/style_1.css";
+            }
+            type2.onclick = function(){
+                linkCss.href = "css/style_2.css";
+            }
+            type3.onclick = function(){
+                linkCss.href = "css/style_3.css";
+            }
+
+        }
+    </script>
 </head>
 <body>
+<input type="button" value="样式1" id="type1"><input type="button" value="样式2" id="type2"><input type="button" value="样式3" id="type3">
 <div class="container">
     <header><h1>简历</h1></header>
     <div class="main">
