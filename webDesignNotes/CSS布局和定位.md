@@ -1,9 +1,17 @@
 ## CSS布局(CSS layout mode)
 我们已经讨论过浮动，这里主要讨论定位，后面补充其他的布局。主要布局如下：
+
+---
 ### 正常布局流(basic document flow)
 默认的布局模式。特征1：块状元素占行；特征2：行内元素从左往右水平分布显示。
+
+---
 ### 浮动(floats)
+
+---
 ### CSS表格
+
+---
 ### 定位(position)
 四种主要定位类型：
 - `static`：默认属性
@@ -17,6 +25,8 @@
 - 只对定位元素有效
 - 如果父元素z-index有效，那么子元素无论是否设置z-index或和父元素一致，都会在父元素上方。如果父元素z-index失效，那么定位子元素的z-index有效
 - z-index相同：如果都没有设置z-index，一个有定位一个没有，定位元素在上面；如果都定位了或者都没定位，按文档顺序，后面覆盖前面。
+
+---
 ### 弹性盒子(flexbox)
 flexbox能够方便灵活的实现floats和positioning难以实现的：
 - 在父容器里面垂直居中一块内容
@@ -42,7 +52,7 @@ flexbox能够方便灵活的实现floats和positioning难以实现的：
 - `space-around`items之间两个单位，items与端之间一个单位
 - `space-evenly`items之间、items与端之间的距离都平等
 
-- ![justify-content](https://cdn.css-tricks.com/wp-content/uploads/2013/04/justify-content-2.svg)
+![justify-content](https://cdn.css-tricks.com/wp-content/uploads/2013/04/justify-content-2.svg)
 ##### `align-items`:对于交叉轴
 - `flex-start`items向y轴起点对齐
 - `flex-end`items向y轴终点对齐
@@ -50,7 +60,7 @@ flexbox能够方便灵活的实现floats和positioning难以实现的：
 - `baseline`向y轴上的基线对齐
 - `stretch`默认值，所有items和父容器的高度一样
 
--![align-items](https://cdn.css-tricks.com/wp-content/uploads/2014/05/align-items.svg)
+![align-items](https://cdn.css-tricks.com/wp-content/uploads/2014/05/align-items.svg)
 ##### `align-content`:对于多行在交叉轴上的排列
 - `stretch`默认值，items会拉伸填满父容器
 - `flex-start`对齐y轴起点
@@ -60,7 +70,42 @@ flexbox能够方便灵活的实现floats和positioning难以实现的：
 - `space-between`列之间、与端之间距离相等
 
 ![align-content](https://css-tricks.com/wp-content/uploads/2013/04/align-content.svg)
+#### flex items属性
+##### `order`默认为0，值为整数，可以是负数，，order可以通过设置数字改变顺序
 
+![flex items - order](https://css-tricks.com/wp-content/uploads/2013/04/order-2.svg)
+##### `flex-grow`
+- 值为整数，不可以是负数，默认为0，0表示不会自己增长来填满父容器
+- 设置为1表示，会尽可能拉伸来填满容器
+- 如果items全部为1，均分，如果有一个设置为2，会占据两倍于其他的宽
+
+![flex items - flex grow](https://css-tricks.com/wp-content/uploads/2014/05/flex-grow.svg)
+##### `flex shrink`默认值为1，表示必要情况下会缩小
+>更多grow和shrink的参考：[flex计算](https://www.w3cplus.com/css3/flexbox-adventures.html)
+##### `flex-basis`
+- 用于指定items的初始大小，在flex-grow和flex-shrink之前的大小，默认值auto
+- 可取任何用于width属性的值：%|em|rem|px等，即使是0也需要单位
+
+##### `flex`缩写：`flex-grow`、`flex-shrink`、`flex-basis`的缩写
+- `flex:0 1 auto;`grow关闭shrink打开
+- `flex:0 0 auto;`grow关闭shrink关闭，相当于`flex:none;`
+- `flex:1 1 auto;`相当于`flex:auto;`
+- `flex:正数 1 0;`相当于`flex:正数;`这个正数是当前item占据比例
+##### `align-self` 和`align-content`类似，但只影响一个item
+- 值：`auto`| `flex-start` | `flex-end` | `center` | `baseline` | `stretch`
+
+![flex items - align-self](https://css-tricks.com/wp-content/uploads/2014/05/align-self.svg)
+#### 绝对和相对flex items
+假设同一个父容器下，一个item内容很多，另一个很少，在items的css设置`flex:auto`(相当于`flex:1 1 auto;`)，那么item的宽度就不等，这是相对items  
+如果设置`flex:1;`(相当于`flex:1 1 0`)，两个item的宽度就会相等，这是绝对items  
+绝对flex items的宽度只基于flex属性，相对flex items的宽度基于内容大小
+
+#### 更多参考
+[flex使用误区](https://medium.com/@ohansemmanuel/flexbox-is-awesome-but-its-not-welcome-here-a90601c292b6)  
+[guide to flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)  
+[everything you need to know about flexbox](https://www.w3cplus.com/css3/understanding-flexbox-everything-you-need-to-know.html)
+
+---
 ### 网格(Grid)
 
 ### “display”属性
