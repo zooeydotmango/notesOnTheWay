@@ -2,7 +2,7 @@
 -------------------------
 
 ## CSS布局(CSS layout mode)
-我们已经讨论过浮动，这里主要讨论定位，后面补充其他的布局。主要布局如下：
+我们已经讨论过浮动，这里主要讨论定位和flexbox，后面补充其他的布局。主要布局如下：
 
 ---
 ### 正常布局流(basic document flow)
@@ -111,6 +111,7 @@ flexbox能够方便灵活的实现floats和positioning难以实现的：
 ---
 ### 网格(Grid)
 
+---
 ### “display”属性
 `display`是css中最重要的控制布局的属性。每个元素都有一个默认的display值，这与元素的类型有关。我们随时都可以重写这个值，比如把`li`修改成inline制作成水平菜单。
 #### block
@@ -121,4 +122,4 @@ div就是一个标准的block（块级）元素。一个块级元素会新开始
 另一个常用的display值是`none`。一些特殊元素的默认值是它，例如`script`。`display：none`常被JS用来在不删除元素的情况下隐藏或显示元素。
 它和`visibility`不一样，设置`display：none`不会占据它本来应该显示的空间，`visibility：hidden`会占据空间。
 #### 其他display值
-还有其他有意思的display值，例如`list-item`和`table`，之后我们会讨论`inline-block`和`flex`。
+还有其他有意思的display值，例如`list-item`和`table`，我们已经了解了`flex`，之后我们会讨论`inline-block`。
