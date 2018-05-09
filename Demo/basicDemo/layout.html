@@ -6,12 +6,12 @@
     <style>
         body{
             margin: 0;
-            font-size: 10px
+            font-size: 10px;
+            min-width: 960px;
         }
         /*header*/
         header  {
             width: 100%;
-            min-width: 960px;
             background: #333333;
         }
         header .head{
@@ -38,31 +38,27 @@
         }
         /*banner*/
         .banner{
-            width: 100%;background-color: #66BB33;
+            width: 100%;
+            background-color: #66BB33;
             height: 300px;
             position: relative;
         }
         .banner ul{
+            display: flex;
+            align-items: flex-end;
+            bottom: 0;
             position: absolute;
             right: calc((100% - 960px)/2);
-            bottom: 15px;
-            margin: 0;
-            padding: 0;
             list-style-type: none;
         }
-        .banner ul>li{
-            float: left;
-        }
-        .banner a{
-            text-decoration: none;
-            display: inline-block;
-            padding: 10px 12px;border:#5A7E43 1px solid;
+        .banner li{
+            padding: 10px 12px;
+            border:#5A7E43 1px solid;
             margin: 0 3px;
             background: #B2DD99;
             color: #66BB33;
         }
-        .banner a.active{
-            position: relative;
+        .banner li.active{
             padding-top: 20px;
             background-color: #E0F1D6;
             color: #5A7E43;
@@ -84,14 +80,13 @@
             display: block;
             float: left;
             padding: 10px 15px;
-            margin:0 -1px -1px 0;
             border:  1px #DBDBDB solid;
             border-radius: 15px 15px 0 0;
             background: #EEEEEE;
         }
         nav ul>li.active{
             background: white;
-            border-bottom: white;
+            border-bottom-color: white;
         }
         /*content*/
         .content{
@@ -136,10 +131,10 @@
 </header>
 <div class="banner">
     <ul>
-        <li><a href="#">1</a></li>
-        <li><a href="#" class="active">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
+        <li>1</li>
+        <li class="active">2</li>
+        <li>3</li>
+        <li>4</li>
     </ul>
 </div>
 <nav>
