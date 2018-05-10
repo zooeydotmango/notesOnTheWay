@@ -65,10 +65,10 @@
         }
         /*nav*/
         nav{
+            height: 55px;
             width: 960px;
-            margin: 15px auto 0;
             border-bottom: 1px #DBDBDB solid;
-            overflow: auto;
+            /*overflow: auto;*/
             padding: 0 calc((100% - 960px)/2);
         }
         nav ul{
@@ -79,10 +79,13 @@
         nav ul>li{
             display: block;
             float: left;
+            margin-top: 15px;
             padding: 10px 15px;
             border:  1px #DBDBDB solid;
             border-radius: 15px 15px 0 0;
             background: #EEEEEE;
+            box-sizing:border-box;
+            height: 41px;
         }
         nav ul>li.active{
             background: white;
