@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>HelloWorld</title>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200" rel="stylesheet">
     <style type="text/css">
     div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockquote,p{padding:0;margin:0;} 
     li{list-style-type:none;} 
     img{vertical-align:top;border:0;} 
     ol,ul {list-style:none;} 
     address,cite,code,em,th {font-weight:normal; font-style:normal;}
-    
     html,body{
     		width: 100%;
     		height: 100%;
@@ -23,30 +22,129 @@
     /*helloWorld*/
     .helloWorld{
     	width: 100%;
-    	height: 100%;
+    	/*height: 100%;*/
     	color: white;
+        padding: 210px 0;
     	text-align: center;
-    	background: url('./img/背景1.png') no-repeat ;
+    	background: linear-gradient(rgba(20,20,20,0.65),rgba(20,20,20,.65)), 
+        url('./img/背景1.png') no-repeat ;
+        background-size: 100% 100%;
     }
     h1{
     	font-size: 62px;
-    	font-weight: 100;
+    	font-weight: normal;
+        margin-bottom: 90px;
     }
+    p{
+        font-size: 20px;
+        line-height: 32px;
+        opacity: 0.7;
+    }
+    .createAccount{
+        width: 970px;
+        margin: 105px auto 0;
+        border: 1px solid rgba(255,255,255,0.2);
+        padding: 50px 0 60px;
+    }
+    .createAccount input,button{
+        font-family: inherit;
+        font-weight: bolder;
+    }
+    .createAccount p {
+        font-size: 12px;
+        margin: 15px 0 40px 0;
+        letter-spacing: 2px;
+    }
+    .createAccount input[type=text]{
+        width: 290px;
+        height: 50px;
+        background:transparent;
+        border-radius: 2px;
+        border: 1px solid rgba(255,255,255,0.2);
+        padding-left: 20px;
+        margin-right: 20px;
+        font-size: 14px;
+    }
+    .createAccount input[type=text].active::placeholder{
+        color: white;
+    }
+    .createAccount button{
+        width: 125px;
+        height: 50px;
+        border-radius: 2px;
+        border: 1px solid white;
+        background: white;
+    }
+        /*banner1*/
+        .banner1{
+            font-family: 'Myriad Pro',sans-serif;
+            width: 100%;
+            height: 710px;
+            text-align: center;
+        }
+        .banner1 h3{
+            font-size: 12px;
+            margin: 90px 0 40px 0;
+            letter-spacing: 2px;
+        }
+        .banner1 >p{
+            display: inline-block;
+            width: 700px;
+            color: black;
+            font-size: 42px;
+            line-height: 52px;
+            background: white;
+            opacity:1;
+        }
+        .banner1 .items-wrapper{
+            width: 1038px;
+            display: flex;
+            flex-flow: row wrap;
+            margin: 95px auto;
+            justify-content: space-between;
+        }
+    .banner1 .items:nth-of-type(1){
+        background: url("./img/images/banner (1).png") no-repeat left top;
+    }
+    .banner1 .items:nth-of-type(2){
+        background: url("./img/images/banner (2).png") no-repeat left top;
+    }.banner1 .items:nth-of-type(3){
+         background: url("./img/images/banner (3).png") no-repeat left top;
+     }.banner1 .items:nth-of-type(4){
+          background: url("./img/images/banner (4).png") no-repeat left top;
+      }
+        .banner1 .items{
+            width: 435px;
+            height: 165px;
+            text-align:left;
+            padding-left: 72px;
+        }
     </style>
 </head>
 <body>
-<section class="helloWorld">
+<header class="helloWorld">
     <h1>Hello World</h1>
-    <p>China is speeding up strategic plan, standards, traffic rules, laws and regulations on accident-incurred liabilities for its smart car industry, Economic Information Daily reported Thursday.</p>
-    <div>
-    	<h5>CREATE YOUR ACCOUNT</h5>
+    <p>China is speeding up strategic plan, standards, traffic rules, laws and regulations
+        <br>on accident-incurred liabilities for its smart car industry, Economic Information
+        <br>Daily reported Thursday.</p>
+    <form class="createAccount">
+    	<h3>CREATE YOUR ACCOUNT</h3>
     	<p>IT IS  ABSOLUTE FREE</p>
-    	<input type="text" name="username">
-    	<input type="text" name="password">
+    	<input type="text" name="email" placeholder="denis@getcraftwork.com" class="active">
+    	<input type="text" name="password" placeholder="Create your password">
     	<button>SIGN UP</button>
+    </form>
+</header>
+<section class="banner1">
+    <h3>BOATLOADS OF AWESOME</h3>
+    <p>Ready-made,customizable,HTML landing page sections</p>
+    <div class="items-wrapper">
+        <div class="items"><h4>Mobile First</h4><p>All modulz are built mobile-first for maximum device compatibility.</p></div>
+        <div class="items"><h4>Accessibility</h4><p>Support for IE8, mobile and tablet devices, screenreaders and color blind.</p></div>
+        <div class="items"><h4>Fluid Typography</h4><p>On different screen sizes, fonts automagically scale with the viewport.</p></div>
+        <div class="items"><h4>Customization</h4><p>Make any design your own using the Style Editor. Personalize fonts, colors, and layouts to create the custom look you want.</p></div>
     </div>
 </section>
-<section></section>
 <section></section>
 <section></section>
 <section></section>
