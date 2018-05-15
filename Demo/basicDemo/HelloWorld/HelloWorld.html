@@ -20,6 +20,13 @@
     		margin: 0;
     		padding: 0;
     	}
+    .clearfix:after {
+        content:""; 
+        display:block; 
+        height:0; 
+        clear:both; 
+    }
+
     /*helloWorld*/
     .helloWorld{
     	width: 100%;
@@ -47,7 +54,7 @@
         border: 1px solid rgba(255,255,255,0.2);
         padding: 50px 0 60px;
     }
-    .createAccount input,button{
+    input,button{
         font-family: inherit;
         font-weight: bolder;
     }
@@ -69,7 +76,7 @@
     .createAccount input[type=text].active::placeholder{
         color: white;
     }
-    .createAccount button{
+    button{
         width: 125px;
         height: 50px;
         border-radius: 2px;
@@ -108,26 +115,86 @@
     }
     .banner1 .items:nth-of-type(2){
         background: url("./img/images/banner (2).png") no-repeat left top;
-    }.banner1 .items:nth-of-type(3){
+    }
+    .banner1 .items:nth-of-type(3){
          background: url("./img/images/banner (3).png") no-repeat left top;
-     }.banner1 .items:nth-of-type(4){
+    }
+    .banner1 .items:nth-of-type(4){
           background: url("./img/images/banner (4).png") no-repeat left top;
-      }
-        .banner1 .items{
+    }
+    .banner1 .items{
         	flex: 0 1 auto;
             width: 450px;
             height: 165px;
             text-align:left;
             padding-left: 72px;
-        }
-        .banner1 .items>h4{
+    }
+    .banner1 .items>h4{
         	font-weight: bolder;
         	font-size: 20px;
-        }
-        .banner1 .items>p{
+    }
+    .banner1 .items>p{
         	font-size: 16px;
         	line-height: 26px;
         	margin-top: 20px;
+    }
+    /*banner2*/
+    .banner2{
+        color: white;
+        width: 100%;
+        background: linear-gradient(rgba(20,20,20,.65),rgba(20,20,20,.65)),
+                    url("./img/banner2背景.png") no-repeat;
+        background-size: 100% 100%;
+        padding: 100px 0;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .banner2 .wrapper{
+        width: 550px;
+        margin-right: 135px;
+    }
+        .banner2 h2{
+            font-size: 42px;
+            color: white;
+            font-weight: normal;
+            display: inline-block;
+            width: 400px;
+            margin: 90px 0 40px 0;
+        }
+        .banner2 p{
+            display: inline-block;
+            width: 390px;
+            font-size: 18px;
+            line-height: 28px;
+            margin-bottom: 55px;
+        }
+        .banner2 button{
+            width: 240px;
+            height: 60px;
+            margin-right: 30px;
+            background: transparent;
+            color: white;
+            letter-spacing: 2px;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        .banner2 button.active{
+            background: white;
+            color: black;
+        }
+        .banner2 .screen{
+            padding: 29px 0 29px 29px;
+            border: 1px solid rgba(255,255,255,0.5);
+            border-radius: 44px 0 0 44px;
+            border-right: none;
+        }
+        .banner2 .screen>span{
+            display: inline-block;
+            margin-top: calc(50% - 10px);
+            margin-right: 19px;
+            width: 10px;
+            height: 10px;
+            border: 1px solid rgba(255,255,255,0.5);
+            border-radius: 5px;
         }
     </style>
 </head>
@@ -155,7 +222,18 @@
         <div class="items"><h4>Customization</h4><p>Make any design your own using the Style Editor. Personalize fonts, colors, and layouts to create the custom look you want.</p></div>
     </div>
 </section>
-<section></section>
+<section class="banner2 clearfix">
+    <div class="wrapper">
+        <h2>Supportive policies for China's smart car</h2>
+        <p>China will come up with its own smart car standards, traffic rules, laws and regulations relating to safety, according to the China Industry Innovation Alliance for the Intelligent and Connected Vehicles.</p>
+        <button class="active">CHECK OUT FEATURES</button>
+        <button>TRY PRODUCT FOR FREE</button>
+    </div>
+    <div class="screen">
+        <span></span>
+        <img src="./img/Screen.png" alt="ipadScreen">
+    </div>
+</section>
 <section></section>
 <section></section>
 <section></section>
