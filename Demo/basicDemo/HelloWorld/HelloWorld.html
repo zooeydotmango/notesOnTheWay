@@ -6,6 +6,7 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:200" rel="stylesheet">
     <style type="text/css">
     div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockquote,p{padding:0;margin:0;} 
+    *{box-sizing: border-box;}
     li{list-style-type:none;} 
     img{vertical-align:top;border:0;} 
     ol,ul {list-style:none;} 
@@ -77,7 +78,6 @@
     }
         /*banner1*/
         .banner1{
-            font-family: 'Myriad Pro',sans-serif;
             width: 100%;
             height: 710px;
             text-align: center;
@@ -87,13 +87,13 @@
             margin: 90px 0 40px 0;
             letter-spacing: 2px;
         }
-        .banner1 >p{
+        .banner1 >h2{
             display: inline-block;
             width: 700px;
             color: black;
             font-size: 42px;
+            font-weight: bolder;
             line-height: 52px;
-            background: white;
             opacity:1;
         }
         .banner1 .items-wrapper{
@@ -114,10 +114,20 @@
           background: url("./img/images/banner (4).png") no-repeat left top;
       }
         .banner1 .items{
-            width: 435px;
+        	flex: 0 1 auto;
+            width: 450px;
             height: 165px;
             text-align:left;
             padding-left: 72px;
+        }
+        .banner1 .items>h4{
+        	font-weight: bolder;
+        	font-size: 20px;
+        }
+        .banner1 .items>p{
+        	font-size: 16px;
+        	line-height: 26px;
+        	margin-top: 20px;
         }
     </style>
 </head>
@@ -137,7 +147,7 @@
 </header>
 <section class="banner1">
     <h3>BOATLOADS OF AWESOME</h3>
-    <p>Ready-made,customizable,HTML landing page sections</p>
+    <h2>Ready-made,customizable,HTML landing page sections</h2>
     <div class="items-wrapper">
         <div class="items"><h4>Mobile First</h4><p>All modulz are built mobile-first for maximum device compatibility.</p></div>
         <div class="items"><h4>Accessibility</h4><p>Support for IE8, mobile and tablet devices, screenreaders and color blind.</p></div>
