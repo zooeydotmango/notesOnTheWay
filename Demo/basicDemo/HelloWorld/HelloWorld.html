@@ -148,12 +148,11 @@
         background-size: 100% 100%;
         padding: 100px 0;
         display: flex;
-        /*flex-flow: row-reverse wrap;*/
-        justify-content: flex-end;
+        justify-content: space-between;
     }
     .banner2 .wrapper{
         width: 550px;
-        margin-right: 10%;
+        margin-left: 20%;
     }
         .banner2 h2{
             font-size: 42px;
@@ -198,6 +197,32 @@
             border: 1px solid rgba(255,255,255,0.5);
             border-radius: 5px;
         }
+        /*banner3*/
+        .banner3{
+            text-align: center;
+        }
+        .banner3 h2{
+            font-size: 42px;
+            line-height: 52px;
+        }
+        .wrapper-logo{
+            width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+        }
+        .logo:nth-of-type(1){
+            background: url("./img/Singleton.png") no-repeat;
+        }
+        .logo:nth-of-type(2){
+        background: url("./img/Hero.png") no-repeat;
+        }
+        .logo:nth-of-type(3){
+        background: url("./img/Portland.png") no-repeat;
+        }
+        .logo{
+            
+        }
     </style>
 </head>
 <body>
@@ -224,7 +249,7 @@
         <div class="items"><h4>Customization</h4><p>Make any design your own using the Style Editor. Personalize fonts, colors, and layouts to create the custom look you want.</p></div>
     </div>
 </section>
-<section class="banner2 clearfix">
+<section class="banner2">
     <div class="wrapper">
         <h2>Supportive policies for China's smart car</h2>
         <p>China will come up with its own smart car standards, traffic rules, laws and regulations relating to safety, according to the China Industry Innovation Alliance for the Intelligent and Connected Vehicles.</p>
@@ -236,7 +261,23 @@
         <img src="./img/Screen.png" alt="ipadScreen">
     </div>
 </section>
-<section></section>
+<section class="banner3">
+    <h2>Try Our Awesome Guys</h2>
+    <div class="wrapper-logo">
+        <div class="logo">
+            <p>Li Jun, a China Academy of Engineering academician and also director of the alliance's experts' committee, said that China will also launch design guidance for smart cars, smart map architecture and standards for test grounds.</p>
+        </div>
+        <div class="logo">
+            <p>Li said the smart car industry is able to enlarge the current car industry by 1 trillion yuan ($158.15 billion) and also able to boost fast development in 5G, internet of cars, big data, artificial intelligence and new-energy vehicles.</p>
+        </div>
+        <div class="logo">
+            <p>Zhang Junyi, a partner with NIO Capital, said that the smart car is the trend for the car industry and China's auto sector will usher in a new key development stage with the improvement of infrastructure, technology, policies and laws.</p>
+        </div>
+    </div>
+    <div class="wrapper-pic">
+        
+    </div>
+</section>
 <section></section>
 <section></section>
 <footer></footer>
