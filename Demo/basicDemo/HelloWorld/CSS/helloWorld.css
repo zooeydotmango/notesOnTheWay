@@ -217,5 +217,10 @@ div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockqu
         background: url("../img/Portland.png") no-repeat center top;
         }
         .logo{
+            width: 260px;
             padding-top: 70px;
+        }
+        .logo p{
+            font-size: 16px;
+            line-height: 26px;
         }
