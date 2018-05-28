@@ -193,17 +193,17 @@ div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockqu
         /*banner3*/
         .banner3{
             text-align: center;
-            padding: 100px 0;
+            padding-top: 100px;
         }
         .banner3 h2{
             font-size: 42px;
             line-height: 52px;
-            margin-bottom: 80px;
         }
-        .wrapper-logo{
+        .wrapper{
             width: 1000px;
-            margin: 0 auto;
+            margin: 100px auto;
             display: flex;
+            flex-flow: row wrap;
             justify-content: space-around;
             
         }
@@ -224,3 +224,4 @@ div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockqu
             font-size: 16px;
             line-height: 26px;
         }
+        
