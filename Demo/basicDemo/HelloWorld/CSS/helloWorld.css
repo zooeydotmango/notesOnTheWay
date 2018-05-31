@@ -298,4 +298,29 @@ div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockqu
         font-size: 12px;
         letter-spacing: 2px;
     }
-    
+    /*contacts*/
+.contacts .wrap{
+    display: block;
+    width: 40%;
+    }
+.contacts .wrap>input{
+    width: 369px;
+    height: 48px;
+}
+.contacts form,input,textarea,button{
+    border: 1px solid rgba(101,101,101,0.2);
+    border-radius: 2px;
+}
+.contacts li{
+        list-style-type: none;
+        padding: 10px 30px;
+    }
+.contacts li:nth-last-of-type(1){
+        background: url("../img/Map.PNG") left no-repeat;
+    }
+.contacts li:nth-last-of-type(2){
+    background: url("../img/Phone.PNG") left no-repeat;
+}
+.contacts li:nth-last-of-type(3){
+    background: url("../img/Mail.png") left no-repeat;
+}
