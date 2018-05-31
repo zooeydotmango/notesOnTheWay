@@ -301,26 +301,63 @@ div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockqu
     /*contacts*/
 .contacts .wrap{
     display: block;
-    width: 40%;
+    width: 48%;
+    padding: 55px;
     }
 .contacts .wrap>input{
     width: 369px;
     height: 48px;
+    margin: 15px;
+    padding-left: 15px;
+}
+.contacts .wrap>h4{
+    text-align: center;
+    padding-bottom: 20px;
+    letter-spacing: 2px;
+}
+.contacts .wrap>textarea{
+    width: 369px;
+    margin: 15px;
+    padding: 15px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: bolder;
+}
+.contacts .wrap>button{
+    width: 369px;
+    background: #000;
+    color: white;
+    margin: 15px;
 }
 .contacts form,input,textarea,button{
     border: 1px solid rgba(101,101,101,0.2);
-    border-radius: 2px;
+    border-radius: 5px;
+}
+.contacts .wrap>h2{
+    font-size: 42px;
+    margin: 20px 0;
+}
+.contacts .wrap>p{
+    font-size: 16px;
+    line-height: 26px;
+    opacity: 1;
+    margin: 10px 0 30px 0;
 }
 .contacts li{
-        list-style-type: none;
-        padding: 10px 30px;
+    list-style-type: none;
+    padding: 10px 30px;
+    margin: 20px 0;
+    line-height: 26px;
+    font-size: 16px;
+    font-weight: bold;
     }
-.contacts li:nth-last-of-type(1){
+.contacts li:nth-of-type(1){
         background: url("../img/Map.PNG") left no-repeat;
     }
-.contacts li:nth-last-of-type(2){
+.contacts li:nth-of-type(2){
     background: url("../img/Phone.PNG") left no-repeat;
 }
-.contacts li:nth-last-of-type(3){
+.contacts li:nth-of-type(3){
     background: url("../img/Mail.png") left no-repeat;
 }
+/*footer*/
