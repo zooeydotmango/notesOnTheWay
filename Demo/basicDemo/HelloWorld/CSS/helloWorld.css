@@ -361,3 +361,29 @@ div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockqu
     background: url("../img/Mail.png") left no-repeat;
 }
 /*footer*/
+footer{
+    background: #000;
+    color: White;
+    display: flex;
+    justify-content: space-around;
+    padding: 90px 200px;
+    font-size: 18px;
+    line-height: 28px;
+}
+footer>h4{
+    font-size: 14px;
+}
+footer p{
+    margin: 10px 0;
+    display: inline-block;
+    width: 290px;
+}
+
+footer li{
+    list-style-type: none;
+    float: left;
+}
+footer img{
+    opacity: 0.7;
+    margin: 5px 10px;
+}
