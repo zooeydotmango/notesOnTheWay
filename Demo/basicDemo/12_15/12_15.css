@@ -1,0 +1,55 @@
+/*all*/
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,
+pre,form,fieldset,input,textarea,blockquote,p {padding:0;margin:0;}
+*{box-sizing: border-box;}
+li{list-style-type:none;}
+img{vertical-align:top;border:0;}
+ol,ul {list-style:none;}
+address,cite,code,em,th {font-weight:normal; font-style:normal;}
+html,body{
+    width:100%;
+    height: 100%;
+}
+/*nav*/
+.container{
+    display: flex;
+    height: 100%;
+    font-family: "Raleway",sans-serif;
+}
+.item{
+    margin: 20px;
+}
+.nav{
+    width: 100px;
+    background: #1d2531;
+    position: relative;
+}
+.nav .icon{
+    position: absolute;
+    bottom: 10px;
+    left: 20%;
+}
+.nav .icon>img{
+    margin: 5px;
+    width: 18px;
+    height: 18px;
+}
+/*menu*/
+.menu{
+    width: 250px;
+    background:#222c3c;
+    color: #b7c0cd;
+    font-size: 14px;
+
+}
+.menu ul{
+    margin: 30px;
+}
+.menu li{
+    margin: 25px 0;
+}
+.menu li:first-of-type{
+    font-size: 12px;
+    color: #5b6779;
+    font-weight: normal;
+}
