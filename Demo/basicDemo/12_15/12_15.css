@@ -101,7 +101,9 @@ html,body{
     background: url("./img/baseRed.png") center right no-repeat;
 }
 .menu span{
-    width: 250px;
-    height: 2px;
-    background: #5b6779;
+    width: 190px;
+    height: 1px;
+    background: #2a3547;
+    display: block;
+    margin: 0 auto;
 }
