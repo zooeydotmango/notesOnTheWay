@@ -90,7 +90,7 @@ html,body{
     top: 6px;
     text-align: center;
     line-height: 24px;
-    background: url("./img/baseBlue.png") center right no-repeat;
+    background: url("./img/BaseBlue.png") center right no-repeat;
 }
 .baseRed{
     width: 24px;
@@ -100,7 +100,7 @@ html,body{
     top: 6px;
     text-align: center;
     line-height: 24px;
-    background: url("./img/baseRed.png") center right no-repeat;
+    background: url("./img/BaseRed.png") center right no-repeat;
 }
 .menu span{
     width: 190px;
