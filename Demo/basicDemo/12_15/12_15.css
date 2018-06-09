@@ -116,6 +116,16 @@ html,body{
     font-weight: normal;
     color: white;
 }
+.goals>progress{
+    width: 180px;
+    height: 4px;
+    border-radius: 2px;
+    background-color:#475364;
+    color: #7f5be6;
+}
+progress::-moz-progress-bar { background: #475364;border-radius: 2px; }
+progress::-webkit-progress-bar { background: #475364;border-radius: 2px; }
+progress::-webkit-progress-value  { background: linear-gradient(to right,#7f5be6,#9d8fe3);border-radius: 2px; }
 /*message*/
 .message{
     flex: 1;
