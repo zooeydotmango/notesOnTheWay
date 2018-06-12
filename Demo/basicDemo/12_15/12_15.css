@@ -19,6 +19,7 @@ html,body{
     height: 100%;
     font-family: Helvetica, Arial, sans-serif;
     font-weight: lighter;
+    overflow: scroll;
 }
 .item{
     margin: 20px;
@@ -44,7 +45,7 @@ html,body{
     background:#222c3c;
     color: #b7c0cd;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 400;
     position: relative;
 }
 .menu ul{
@@ -83,6 +84,7 @@ html,body{
     background: url("./img/Chart.png") center left 30px no-repeat;
 }
 .baseBlue{
+    color: white;
     width: 32px;
     height: 24px;
     position: absolute;
@@ -93,6 +95,7 @@ html,body{
     background: url("./img/BaseBlue.png") center right no-repeat;
 }
 .baseRed{
+    color: white;
     width: 24px;
     height: 24px;
     position: absolute;
@@ -115,6 +118,7 @@ html,body{
     padding: 20px 30px;
     font-weight: normal;
     color: white;
+    background: #222c3c;
 }
 .goals>progress{
     width: 180px;
@@ -123,28 +127,119 @@ html,body{
     background-color:#475364;
     color: #7f5be6;
 }
-progress::-moz-progress-bar { background: #475364;border-radius: 2px; }
-progress::-webkit-progress-bar { background: #475364;border-radius: 2px; }
-progress::-webkit-progress-value  { background: linear-gradient(to right,#7f5be6,#9d8fe3);border-radius: 2px; }
+.goals>progress::-moz-progress-bar { background: #475364;border-radius: 2px; }
+.goals>progress::-webkit-progress-bar { background: #475364;border-radius: 2px; }
+.goals>progress::-webkit-progress-value  { background: linear-gradient(to right,#7f5be6,#9d8fe3);border-radius: 2px; }
 /*message*/
 .message{
     flex: 1;
+    font-size: 14px;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: flex-start;
+    color: #585d68;
 }
 .headBar{
-    padding: 15px;
     position: relative;
+    width: 100%;
+    height: 88px;
+}
+.headBar>h1{
+    font-size: 24px;
+    font-weight: normal;
+    padding: 30px;
+    color: #354052;
 }
 .userInfo{
     width: 200px;
     position: absolute;
     right: 0;
+    top: 20px;
+    font-weight: 500;
 }
 .userInfo>img{
     display: inline-block;
 }
+.photo{
+    float: left;
+}
+.dropdown{
+    float: right;
+    margin-right: 20px;
+}
 .userInfo>p:first-of-type{
     display: inline-block;
+    margin-top: 6px;
+    margin-left: 12px;
+    color: #2399f1;
+    font-size: 16px;
 }
 .userInfo>p:last-of-type{
     display: inline-block;
+    margin-bottom: 6px;
+    margin-left: 12px;
+    color: #b5b5b5;
+
+}
+.search{
+    width: 400px;
+    padding: 20px 40px;
+    border: 0.4px solid rgba(110,110,110,0.4);
+    border-left: none;
+}
+.search>input{
+    width: 320px;
+    height: 30px;
+    font-family: inherit;
+    border: none;
+    background: url("./img/Search icon.PNG") center right no-repeat;
+}
+.search>input:focus{
+    outline: none;
+}
+.control{
+    flex: 1 1 40%;
+    border: 0.4px solid rgba(110,110,110,0.4);
+    border-left: none;
+    border-right: none;
+    padding: 20px;
+}
+.control p{
+    display: inline-block;
+    width: 110px;
+    font-size: 18px;
+    /*font-weight: bold;*/
+}
+.status{
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
+    background: #1bb934;
+}
+.divider{
+    display: inline-block;
+    width: 1px;
+    height: 32px;
+    background: rgba(110,110,110,0.4);
+}
+.control>form{
+    float: right;
+}
+.control button{
+    display: inline;
+    width: 36px;
+    height: 32px;
+    margin: 0;
+    letter-spacing: 0;
+}
+.content{
+    display: flex;
+    height: 100%;
+}
+.friend{
+    width: 400px;
+}
+.chat{
+    flex: 1;
 }
