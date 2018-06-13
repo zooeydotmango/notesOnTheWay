@@ -12,7 +12,6 @@ html,body{
     margin: 0;
     padding: 0;
 }
-/*nav*/
 .container{
     display: flex;
     width: 100%;
@@ -21,6 +20,7 @@ html,body{
     font-weight: lighter;
     overflow: scroll;
 }
+/*nav*/
 .item{
     margin: 20px;
 }
@@ -138,13 +138,13 @@ html,body{
     flex-flow: row wrap;
     align-content: flex-start;
     color: #585d68;
+    height: 100vh;
 }
-.headBar{
+.topBar{
     position: relative;
     width: 100%;
-    height: 88px;
 }
-.headBar>h1{
+.topBar>h1{
     font-size: 24px;
     font-weight: normal;
     padding: 30px;
@@ -156,9 +156,6 @@ html,body{
     right: 0;
     top: 20px;
     font-weight: 500;
-}
-.userInfo>img{
-    display: inline-block;
 }
 .photo{
     float: left;
@@ -179,32 +176,57 @@ html,body{
     margin-bottom: 6px;
     margin-left: 12px;
     color: #b5b5b5;
-
 }
-.search{
+/*message左栏*/
+.friend{
     width: 400px;
-    padding: 20px 40px;
+    height: 100%;
     border: 0.4px solid rgba(110,110,110,0.4);
     border-left: none;
+    border-bottom: none;
+    display: flex;
+    flex-flow: column nowrap;
+}
+.search{
+    padding: 20px 30px;
+    border-bottom: 1px solid rgba(110,110,110,0.4);
 }
 .search>input{
-    width: 320px;
+    width: 340px;
     height: 30px;
     font-family: inherit;
-    border: none;
-    background: url("./img/Search icon.PNG") center right no-repeat;
+    border: 0.4px solid rgba(110,110,110,0.4);
+    border-radius: 4px;
+    padding: 12px;
+    background: url("./img/Search icon.PNG") center right 12px no-repeat;
 }
 .search>input:focus{
     outline: none;
 }
-.control{
-    flex: 1 1 40%;
+.friendChat{
+    height: 100%;
+    overflow: scroll;
+}
+.friendChat>div{
+    padding: 20px;
+    border-bottom: 0.4px solid rgba(110,110,110,0.4);
+}
+.friendChat>div:first-of-type{
+    border-top: none;
+}
+.friendInfo>img{
+    float: left;
+}
+
+/*message右栏*/
+.chat{
+    flex: 1;
     border: 0.4px solid rgba(110,110,110,0.4);
     border-left: none;
     border-right: none;
     padding: 20px;
 }
-.control p{
+.chat p{
     display: inline-block;
     width: 110px;
     font-size: 18px;
@@ -212,9 +234,9 @@ html,body{
 }
 .status{
     display: inline-block;
-    width: 6px;
-    height: 6px;
-    border-radius: 3px;
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
     background: #1bb934;
 }
 .divider{
@@ -223,10 +245,10 @@ html,body{
     height: 32px;
     background: rgba(110,110,110,0.4);
 }
-.control>form{
+.chat>form{
     float: right;
 }
-.control button{
+.chat button{
     display: inline;
     width: 36px;
     height: 32px;
