@@ -180,8 +180,8 @@ html,body{
 /*message左栏*/
 .friend{
     width: 400px;
-    height: 100%;
-    border: 0.4px solid rgba(110,110,110,0.4);
+    height: calc( 100% - 88px);
+    border: 1px solid rgba(110,110,110,0.4);
     border-left: none;
     border-bottom: none;
     display: flex;
@@ -195,33 +195,40 @@ html,body{
     width: 340px;
     height: 30px;
     font-family: inherit;
-    border: 0.4px solid rgba(110,110,110,0.4);
+    border: 1px solid rgba(110,110,110,0.4);
     border-radius: 4px;
     padding: 12px;
     background: url("./img/Search icon.PNG") center right 12px no-repeat;
 }
-.search>input:focus{
-    outline: none;
-}
 .friendChat{
-    height: 100%;
+    height: calc(100% - 70px);
     overflow: scroll;
 }
 .friendChat>div{
     padding: 20px;
-    border-bottom: 0.4px solid rgba(110,110,110,0.4);
+    border-bottom: 1px solid rgba(110,110,110,0.4);
+    position: relative;
 }
 .friendChat>div:first-of-type{
     border-top: none;
 }
-.friendInfo>img{
+.shortChat>img{
     float: left;
+    margin-right: 10px;
 }
-
+.shortChat>p:first-of-type{
+    padding: 10px;
+}
+.shortChat .status{
+    background-color: #2399f1;
+}
+.shortChat .baseBlue{
+    top: 30px;
+}
 /*message右栏*/
 .chat{
     flex: 1;
-    border: 0.4px solid rgba(110,110,110,0.4);
+    border: 1px solid rgba(110,110,110,0.4);
     border-left: none;
     border-right: none;
     padding: 20px;
@@ -259,9 +266,7 @@ html,body{
     display: flex;
     height: 100%;
 }
-.friend{
-    width: 400px;
-}
+
 .chat{
     flex: 1;
 }
