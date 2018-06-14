@@ -1,11 +1,35 @@
+@font-face {
+    font-family: proxima_nova;
+    src: url("./font/proximanova.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
 /*all*/
-div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,
-pre,form,fieldset,input,textarea,blockquote,p {padding:0;margin:0;}
-*{box-sizing: border-box;}
-li{list-style-type:none;}
-img{vertical-align:top;border:0;}
-ol,ul {list-style:none;}
-address,cite,code,em,th {font-weight:normal; font-style:normal;}
+div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6,
+pre, form, fieldset, input, textarea, blockquote, p {
+    padding: 0;
+    margin: 0;
+}
+* {
+    box-sizing: border-box;
+}
+li {
+    list-style-type: none;
+}
+img {
+    vertical-align: top;
+    border: 0;
+}
+ol, ul {
+    list-style: none;
+}
+address, cite, code, em, th {
+    font-weight: normal;
+    font-style: normal;
+}
+*::-webkit-scrollbar {
+    display: none;
+}
 html,body{
     width:100%;
     height: 100%;
@@ -16,7 +40,7 @@ html,body{
     display: flex;
     width: 100%;
     height: 100%;
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: proxima_nova, Helvetica, Arial, sans-serif;
     font-weight: lighter;
     overflow: scroll;
 }
@@ -85,27 +109,26 @@ html,body{
 }
 .baseBlue{
     color: white;
-    width: 32px;
+    /*width: 32px;*/
     height: 24px;
-    position: absolute;
-    right: 30px;
-    top: 6px;
+    padding: 0 8px;
     text-align: center;
+    background: #2399f1;
     line-height: 24px;
-    background: url("./img/BaseBlue.png") center right no-repeat;
+    float: right;
+    border-radius: 12px;
 }
 .baseRed{
+    padding: 0 10px;
     color: white;
-    width: 24px;
     height: 24px;
-    position: absolute;
-    right: 30px;
-    top: 6px;
     text-align: center;
     line-height: 24px;
-    background: url("./img/BaseRed.png") center right no-repeat;
+    background: linear-gradient( rgb(244,84,56) 0%, rgb(203,39,10) 100%);
+    float: right;
+    border-radius: 12px;
 }
-.menu span{
+.menu>span{
     width: 190px;
     height: 1px;
     background: #2a3547;
@@ -143,6 +166,7 @@ html,body{
 .topBar{
     position: relative;
     width: 100%;
+    border-bottom: 1px solid rgba(110,110,110,0.2);
 }
 .topBar>h1{
     font-size: 24px;
@@ -181,54 +205,77 @@ html,body{
 .friend{
     width: 400px;
     height: calc( 100% - 88px);
-    border: 1px solid rgba(110,110,110,0.4);
-    border-left: none;
-    border-bottom: none;
     display: flex;
     flex-flow: column nowrap;
+    border-right: 1px solid rgba(110,110,110,0.2);
 }
 .search{
     padding: 20px 30px;
-    border-bottom: 1px solid rgba(110,110,110,0.4);
+    border-bottom: 1px solid rgba(110,110,110,0.2);
 }
 .search>input{
     width: 340px;
     height: 30px;
     font-family: inherit;
-    border: 1px solid rgba(110,110,110,0.4);
+    border: 1px solid rgba(110,110,110,0.2);
     border-radius: 4px;
     padding: 12px;
     background: url("./img/Search icon.PNG") center right 12px no-repeat;
 }
-.friendChat{
+.friendList{
     height: calc(100% - 70px);
     overflow: scroll;
 }
-.friendChat>div{
-    padding: 20px;
-    border-bottom: 1px solid rgba(110,110,110,0.4);
-    position: relative;
+.friendList>.active{
+    border-left: 3px solid #2399f1;
 }
-.friendChat>div:first-of-type{
+.shortChat:first-of-type{
     border-top: none;
+}
+.shortChat{
+    padding: 20px;
+    border-bottom: 1px solid rgba(110,110,110,0.2);
+    position: relative;
 }
 .shortChat>img{
     float: left;
     margin-right: 10px;
 }
 .shortChat>p:first-of-type{
-    padding: 10px;
+    padding: 8px;
 }
 .shortChat .status{
     background-color: #2399f1;
+    margin-right: 5px;
+}
+.shortChat p>span:nth-of-type(1){
+    font-size: 16px;
+    font-weight: bold;
+}
+.shortChat p>span[class="active"]{
+    color: #2399f1;
+}
+.shortChat p>span:nth-of-type(2){
+    float: right;
+    color: #7f8fa4;
+    font-weight: bold;
+}
+.shortChat p>span:nth-of-type(3){
+    display: inline-block;
+    color: #b5b5b5;
+    margin-top: 5px;
+}
+.shortChat p:nth-of-type(2){
+    display: inline-block;
+    width: 325px;
+    line-height: 19px;
 }
 .shortChat .baseBlue{
-    top: 30px;
+    margin-top: 8px;
 }
 /*message右栏*/
 .chat{
     flex: 1;
-    border: 1px solid rgba(110,110,110,0.4);
     border-left: none;
     border-right: none;
     padding: 20px;
@@ -237,7 +284,6 @@ html,body{
     display: inline-block;
     width: 110px;
     font-size: 18px;
-    /*font-weight: bold;*/
 }
 .status{
     display: inline-block;
@@ -261,10 +307,6 @@ html,body{
     height: 32px;
     margin: 0;
     letter-spacing: 0;
-}
-.content{
-    display: flex;
-    height: 100%;
 }
 
 .chat{
