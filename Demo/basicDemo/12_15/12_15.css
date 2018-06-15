@@ -212,6 +212,7 @@ html,body{
 .search{
     padding: 20px 30px;
     border-bottom: 1px solid rgba(110,110,110,0.2);
+    height: 70px;
 }
 .search>input{
     width: 340px;
@@ -219,7 +220,7 @@ html,body{
     font-family: inherit;
     border: 1px solid rgba(110,110,110,0.2);
     border-radius: 4px;
-    padding: 12px;
+    padding: 8px 14px;
     background: url("./img/Search icon.PNG") center right 12px no-repeat;
 }
 .friendList{
@@ -276,14 +277,43 @@ html,body{
 /*message右栏*/
 .chat{
     flex: 1;
-    border-left: none;
-    border-right: none;
-    padding: 20px;
 }
-.chat p{
+.chatControl{
+    width: 100%;
+    padding: 20px 30px;
+    border-bottom: 1px solid rgba(110,110,110,0.2);
+    height: 70px;
+}
+.chatControl>p{
     display: inline-block;
-    width: 110px;
+    line-height: 32px;
     font-size: 18px;
+    margin-right: 5px;
+    font-weight: bold;
+}
+.chatControl>form{
+    float: right;
+    display: flex;
+}
+.chatControl button{
+    width: 36px;
+    border: 1px solid #ced0da;
+    background: linear-gradient(360deg,rgb(241,243,247) 0%,rgb(255,255,255) 100%);
+}
+#user{
+    border-radius: 4px 0 0 4px;
+    border-right: none;
+}
+#trash{
+    border-radius: 0 4px 4px 0;
+    border-left: none;
+}
+#leftPage{
+    border-radius: 4px 0 0 4px;
+    border-right: none;
+}
+#rightPage{
+    border-radius: 0 4px 4px 0;
 }
 .status{
     display: inline-block;
@@ -292,23 +322,10 @@ html,body{
     border-radius: 4px;
     background: #1bb934;
 }
-.divider{
+.chatControl form>p{
     display: inline-block;
-    width: 1px;
     height: 32px;
-    background: rgba(110,110,110,0.4);
-}
-.chat>form{
-    float: right;
-}
-.chat button{
-    display: inline;
-    width: 36px;
-    height: 32px;
-    margin: 0;
-    letter-spacing: 0;
-}
-
-.chat{
-    flex: 1;
+    line-height: 32px;
+    font-weight: bold;
+    color: #56688a;
 }
