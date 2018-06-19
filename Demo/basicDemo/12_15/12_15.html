@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>12_15</title>
     <link rel="stylesheet" href="./12_15.css">
-    <link type="text/css" rel="stylesheet" href="chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/content.css">
 </head>
 <body>
 <div class="container">
@@ -44,7 +43,7 @@
             <li>Account Settings</li>
             <li>App Settings</li>
         </ul>
-        <div class="goals">
+        <div class="goals inner">
             <p>Monthly Goals &nbsp; $580/$3200</p>
             <progress value="20" max="100"></progress>
         </div>
@@ -60,12 +59,12 @@
             </div>
         </div>
         <div class="friend">
-            <div class="search">
+            <div class="search inner">
                 <input type="search" placeholder="Search">
             </div>
             <div class="friendList">
-                <div class="shortChat active">
-                    <img src="./img/Face1.png" alt="Face1">
+                <div class="shortChat active inner">
+                    <img src="./img/Face1.png" alt="Face1" class="bio">
                     <p>
                         <span class="active"><span class="status"></span>Bessie Berry</span>
                         <span>3m</span>
@@ -76,8 +75,8 @@
                         In fact, it's relatively quick, and stable...</p>
                     <span class="baseBlue">4</span>
                 </div>
-                <div class="shortChat">
-                    <img src="./img/Face2.png" alt="Face2">
+                <div class="shortChat inner">
+                    <img src="./img/Face2.png" alt="Face2" class="bio">
                     <p>
                         <span>Victor Weber</span>
                         <span>8m</span>
@@ -87,8 +86,8 @@
                     <p>I shared this on my fb wall a few months back, 
                         and I thought I'd share it here again because it's such a great...</p>
                 </div>
-                <div class="shortChat">
-                    <img src="./img/Face3.png" alt="Face3">
+                <div class="shortChat inner">
+                    <img src="./img/Face3.png" alt="Face3" class="bio">
                     <p>
                         <span>Dustin Benson</span>
                         <span>Yesterday</span>
@@ -98,8 +97,8 @@
                     <p>If there is anyone who needs an invitation please 
                         add yourself in the comments of this post!</p>
                 </div>
-                <div class="shortChat">
-                    <img src="./img/Face4.png" alt="Face4">
+                <div class="shortChat inner">
+                    <img src="./img/Face4.png" alt="Face4" class="bio">
                     <p>
                         <span>Jack Mason</span>
                         <span>Yesterday</span>
@@ -109,8 +108,8 @@
                     <p>BruteDC is a peer-to-peer movie+tv series sharing and
                         downloading platform which works on intranet inside...</p>
                 </div>
-                <div class="shortChat">
-                    <img src="./img/Face5.png" alt="Face5">
+                <div class="shortChat inner">
+                    <img src="./img/Face5.png" alt="Face5" class="bio">
                     <p>
                         <span>Stephen Shelton</span>
                         <span>13Jun</span>
@@ -120,8 +119,8 @@
                     <p>Yes, p2p traffic is often filtered (QoSed). Although
                         i do use BT on O2 wires, and in good days dl speed...</p>
                 </div>
-                <div class="shortChat">
-                    <img src="./img/Face6.png" alt="Face6">
+                <div class="shortChat inner">
+                    <img src="./img/Face6.png" alt="Face6" class="bio">
                     <p>
                         <span>Sally Wills</span>
                         <span>12Jun</span>
@@ -130,8 +129,8 @@
                     </p>
                     <p>Yes, it's O2: 'internet extreme', which is no longer offered.</p>
                 </div>
-                <div class="shortChat">
-                    <img src="./img/Face7.png" alt="Face7">
+                <div class="shortChat inner">
+                    <img src="./img/Face7.png" alt="Face7" class="bio">
                     <p>
                         <span>Robert Patton</span>
                         <span>9Jun</span>
@@ -143,16 +142,55 @@
             </div>
         </div>
         <div class="chat">
-            <div class="chatControl">
+            <div class="chatControl inner">
                 <p>Bessie Berry</p><span class="status"></span>
                 <form action="">
                     <button type="button" id="user"><img src="./img/User%20icon.png" alt="User"></button>
                     <button type="button" id="upload"><img src="./img/Upload%20icon.png" alt="Upload"></button>
                     <button type="button" id="trash"><img src="./img/Trash%20icon.png" alt="Trash"></button>
+                    <span class="divider"></span>
                     <p>1 of 28</p>
                     <button type="button" id="leftPage"><img src="./img/Arrow%20left.png" alt="Arrow Left"></button>
                     <button type="button" id="rightPage"><img src="./img/Arrow%20right.png" alt="Arrow Right"></button>
                 </form>
+            </div>
+            <div>
+                <div class="inner">
+                <div class="oneChat">
+                    <img src="./img/Face1.png" alt="Face1" class="bio">
+                    <span>Bessie Berry</span><span>8:31 AM</span>
+                    <p>Hi guys Ive got the O2 package and have really slow internet. A speed check online said i can
+                        get 3mbps but it seems more like 0.5 these days, just freezing and taking ages to open pages
+                        and open audio files for example. I have decided to switch to the UPC package which offers
+                        10mbps but do you think i will get it?</p>
+                </div>
+                <div class="oneChat">
+                    <img src="./img/Face.png" alt="Face" class="bio">
+                    <span>Bessie Berry</span><span>8:31 AM</span>
+                    <p>Hi guys Ive got the O2 package and have really slow internet. A speed check online said i can
+                        get 3mbps but it seems more like 0.5 these days, just freezing and taking ages to open pages
+                        and open audio files for example. I have decided to switch to the UPC package which offers
+                        10mbps but do you think i will get it?</p>
+                </div>
+                </div>
+                <div class="inner">
+                <div class="oneChat">
+                    <img src="./img/Face.png" alt="Face" class="bio">
+                    <span>Bessie Berry</span><span>8:31 AM</span>
+                    <p>Hi guys Ive got the O2 package and have really slow internet. A speed check online said i can
+                        get 3mbps but it seems more like 0.5 these days, just freezing and taking ages to open pages
+                        and open audio files for example. I have decided to switch to the UPC package which offers
+                        10mbps but do you think i will get it?</p>
+                </div>
+                <div class="oneChat">
+                    <img src="./img/Face.png" alt="Face" class="bio">
+                    <span>Bessie Berry</span><span>8:31 AM</span>
+                    <p>Hi guys Ive got the O2 package and have really slow internet. A speed check online said i can
+                        get 3mbps but it seems more like 0.5 these days, just freezing and taking ages to open pages
+                        and open audio files for example. I have decided to switch to the UPC package which offers
+                        10mbps but do you think i will get it?</p>
+                </div>
+                </div>
             </div>
         </div>
     </div>
