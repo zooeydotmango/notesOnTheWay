@@ -391,3 +391,6 @@ html,body{
 .chat>div>.inner:last-of-type:after{visibility: hidden}
 .chat>div>.inner:last-of-type{
     border-bottom: none;}
+.pic{
+    
+}
