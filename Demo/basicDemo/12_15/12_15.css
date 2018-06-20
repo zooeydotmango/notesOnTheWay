@@ -39,6 +39,7 @@ html,body{
 .container{
     display: flex;
     width: 100%;
+    min-width: 1214px;
     height: 100%;
     font-family: proxima_nova, Helvetica, Arial, sans-serif;
     font-weight: lighter;
@@ -46,6 +47,13 @@ html,body{
 }
 .inner{
     padding: 20px 30px;
+}
+.clearfix:after{
+    content:".";
+    display:block;
+    height:0;
+    clear:both;
+    visibility: hidden;
 }
 /*nav*/
 .item{
@@ -277,6 +285,7 @@ html,body{
 /*message右栏*/
 .chat{
     flex: 1;
+    height: calc(100% - 88px);
 }
 .chatControl{
     width: 100%;
@@ -342,7 +351,46 @@ html,body{
     color: #585d68;
 }
 .oneChat>span:nth-of-type(2){
-    margin-left: 5px;
-    color: #7f8fa4;
     font-weight: bold;
+    color: #7f8fa4;
+    margin-left: 10px;
+}
+.chat>div:nth-of-type(2){
+    height: calc(100% - 70px);
+    overflow: scroll;
+}
+.inner>.oneChat:last-of-type{
+    margin-top: 20px;
+}
+.oneChat>p{
+    overflow: hidden;
+    margin-top: 10px;
+    line-height: 19px;
+}
+.chat>div>.inner{
+    border-bottom: 1px solid rgb(217,221,227);
+}
+.chat>div>.inner{
+    position: relative;}
+.chat>div>.inner:after{
+    content: 'Tuesday';
+    color: #7f8fa4;
+    position: absolute;
+    left: 50%;
+    bottom: -7px;
+    background: white;
+    padding: 0 6px;
+}
+.chat>div>.inner:nth-last-of-type(2){
+    border-bottom: 1px solid rgb(167,214,249);
+}
+.chat>div>.inner:nth-last-of-type(2):after{
+    content: 'New Message';
+    color: #2399f1;
+}
+.chat>div>.inner:last-of-type:after{visibility: hidden}
+.chat>div>.inner:last-of-type{
+    border-bottom: none;}
+.pic{
+    
 }
