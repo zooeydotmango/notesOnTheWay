@@ -48,7 +48,7 @@ a:link {
   color: pink;
 }
 a:visited {
-  color: pruple;
+  color: purple;
 }
 a:focus {
   border-bottom: 1px solid;
@@ -81,8 +81,24 @@ footer {
   text-align: left;
   text-indent: 50px;
 }
-
+section:first-of-type button,span{
+    margin-left: 15px;
+}
+section:first-of-type span{
+    margin-left: 15px;
+    color: pink;
+    display: none;
+}
     </style>
+    <script>
+        window.onload=function () {
+            let oBtn = document.getElementById("habit");
+            let sHabit = oBtn.nextSibling;
+            oBtn.onclick=function () {
+                    sHabit.style.display = "unset";
+            };
+        }
+    </script>
 </head>
 <body>
 <div class="container">
@@ -90,7 +106,9 @@ footer {
 <hr>
 <section>
     <h2>个人信息</h2>
-    <p>姓名：zooeydotmango<br>年龄：xx<br>大学：xxxx</p>
+    <p>姓名：zooeydotmango<button id="habit">兴趣</button><span>lost</span></p>
+    <p>年龄：xx</p>
+    <p>大学：xxxx</p>
 </section>
 <hr>
 <section>
