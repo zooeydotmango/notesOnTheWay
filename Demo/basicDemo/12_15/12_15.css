@@ -408,10 +408,12 @@ html,body{
     position: absolute;
     top: 0;
     left: 0;
+    text-align: center;
+    opacity: 0;
 }
 .cover>img{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    
+    margin-top: 15%;
+}
+.cover:hover{
+    opacity: 1;
 }
