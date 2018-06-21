@@ -359,7 +359,7 @@ html,body{
     margin-left: 10px;
 }
 .chat>div:nth-of-type(2){
-    height: calc(100% - 70px);
+    height: calc(100% - 160px);
     overflow: scroll;
 }
 .inner>.oneChat:last-of-type{
@@ -388,7 +388,7 @@ html,body{
     border-bottom: 1px solid rgb(167,214,249);
 }
 .chat>div>.inner:nth-last-of-type(2):after{
-    content: 'New Message';
+    content: 'New Messages';
     color: #2399f1;
 }
 .chat>div>.inner:last-of-type:after{visibility: hidden}
@@ -416,4 +416,21 @@ html,body{
 }
 .cover:hover{
     opacity: 1;
+}
+.chat>div:nth-of-type(3){
+    height: 90px;
+    display: flex;
+}
+.chat>div:nth-of-type(3)>input{
+    flex: 1;
+    border: 1px solid #ced0da;
+    padding: 15px;
+    font-family: inherit;
+    color: inherit;
+}
+.chat>div:nth-of-type(3)>button{
+    width: 54px;
+    background: linear-gradient(360deg,rgb(241,243,247) 0%,rgb(255,255,255) 100%);
+    border: 1px solid #ced0da;
+    border-right: none;
 }
