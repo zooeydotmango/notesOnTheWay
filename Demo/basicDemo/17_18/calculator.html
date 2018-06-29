@@ -13,7 +13,32 @@
 <button id="divide-btn">除</button>
 <p id="result">运算结果</p>
 <script>
+    window.onload=function(){
+        let result=document.getElementById("result");
+        let nFirst=document.getElementById("first-number");
+        let nSec=document.getElementById("second-number");
+        let oAdd=document.getElementById("add-btn");
+        let oMinus=document.getElementById("minus-btn");
+        let oTimes=document.getElementById("times-btn");
+        let oDivide=document.getElementById("divide-btn");
 
+        oAdd.onclick=function () {
+            result.innerHTML=parseInt(nFirst.value) + parseInt(nSec.value);
+        }
+        oMinus.onclick=function () {
+            result.innerHTML=nFirst.value - nSec.value;
+        }
+        oTimes.onclick=function () {
+            result.innerHTML=nFirst.value * nSec.value;
+        }
+        if (nSec.value != 0) {
+            oDivide.onclick = function () {
+                result.innerHTML = nFirst.value / nSec.value;
+            }
+        }else{
+            console.log("第二个数不能为0！")
+        }
+    }
 </script>
 </body>
 </html>
