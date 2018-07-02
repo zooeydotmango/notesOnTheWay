@@ -22,23 +22,29 @@
         let oTimes=document.getElementById("times-btn");
         let oDivide=document.getElementById("divide-btn");
 
+        if (typeof nFirst.value !== Number || typeof nSec.value !== Number){
+            console.log("请输入数字！")
+        } else{
         oAdd.onclick=function () {
             result.innerHTML=parseInt(nFirst.value) + parseInt(nSec.value);
-        }
+        };
         oMinus.onclick=function () {
             result.innerHTML=nFirst.value - nSec.value;
-        }
-        oTimes.onclick=function () {
-            result.innerHTML=nFirst.value * nSec.value;
-        }
-        if (nSec.value != 0) {
-            oDivide.onclick = function () {
-                result.innerHTML = nFirst.value / nSec.value;
+        };
+        oDivide.onclick=function () {
+            if (nSec.value == 0) {
+                console.log("第二个数不能为0！");
             }
-        }else{
-            console.log("第二个数不能为0！")
+            else {
+                result.innerHTML=nFirst.value / nSec.value;
+            }
+        };
+        oTimes.onclick = function () {
+            result.innerHTML = nFirst.value * nSec.value;
+        };
         }
     }
+        
 </script>
 </body>
 </html>
