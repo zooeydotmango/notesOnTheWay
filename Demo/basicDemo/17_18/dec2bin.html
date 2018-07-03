@@ -28,8 +28,10 @@
                 console.log("您输入的位数过小！");
                 return bin.join("");
             }else {
-                for (let i=0;i<= parseInt(nBit.value)- bin.length;i++){
+                let n =parseInt(nBit.value)-bin.length;
+                for (let i=0;i< n;i++){
                     bin.unshift(0);
+                    console.log(i);
                 }
                 return bin.join("");
             }
@@ -39,7 +41,6 @@
     }
     // 实现党点击转化按钮时，将输入的十进制数字转化为二进制，并显示在result的p标签内
     // Some coding
-
 
     oBtn.onclick=function(){
         result.innerHTML = dec2bin(parseInt(nDec.value))
