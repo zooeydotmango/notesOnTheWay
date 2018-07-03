@@ -5,15 +5,27 @@
     <title>IFE ECMAScript</title>
 </head>
 <body>
+<h2>转化为二进制</h2>
 <input id="dec-number" type="number" placeholder="输入一个十进制非负整数">
 <input id="bin-bit" type="number" placeholder="输入转化后二进制数字位数">
 <button id="trans-btn">转化为二进制</button>
 <p id="result">运算结果</p>
+<h2>console.log被3整除和含有3的数</h2>
+<p>刷新页面查看console栏</p>
+<h2>九九乘法表</h2>
+<input id="multi" type="number" placeholder="输入一个正整数">
+<button id="multi-btn">生成乘法表</button>
+<table>
+</table>
 <script>
+    //1
     let nDec=document.getElementById("dec-number");
     let oBtn=document.getElementById("trans-btn");
     let result=document.getElementById("result");
     let nBit=document.getElementById("bin-bit");
+    oBtn.onclick=function(){
+        result.innerHTML = "结果为："+dec2bin(parseInt(nDec.value))
+    };
     function dec2bin(decNumber){
         // 在这里实现你的转化方法，注意需要判断输入必须为一个非负整数
         let bin=[];
@@ -39,12 +51,38 @@
             console.log("请输入非负整数");
         }
     }
+    //2
+    for (let i=1;i<=100;i++){
+        let j=i.toString();
+        if (i%3 ===0 || j.indexOf(3)!== -1){
+            console.log("PA"+i);
+        } else console.log(i);
+    }
     // 实现党点击转化按钮时，将输入的十进制数字转化为二进制，并显示在result的p标签内
     // Some coding
-
-    oBtn.onclick=function(){
-        result.innerHTML = dec2bin(parseInt(nDec.value))
+    //3
+    let nMulti = document.getElementById("multi");
+    let oBtnMulti = document.getElementById("multi-btn");
+    oBtnMulti.onclick=function () {
+        multiplication(parseInt(nMulti.value));
     };
+   
+    function multiplication(n) {
+        let table=document.querySelector("table");
+        if (nMulti<=0){return false;}
+        for (let i=1;i<=n;i++){
+            let tr=[];
+            tr[i]=document.createElement("tr");
+            table.appendChild(tr[i]);
+            for (let j=1;j<=i;j++){
+                let td=[];
+                td[j] = document.createElement("td");
+                td[j].innerHTML=j+"*"+i+"="+i*j;
+                tr[i].appendChild(td[j]);
+            }
+        }
+    }
+    
 </script>
 </body>
 </html>
