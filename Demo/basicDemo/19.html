@@ -43,10 +43,12 @@
     function findAllHtmlSpanInOneSection(sectionId) {
         // 返回某个section下所有span中内容为HTML的span标签
         let aSpan= document.getElementById("sectionId").getElementsByTagName("span");
+        let result=[];
         for(let i=0;i< aSpan.length;i++){
             aSpan[i].innerHTML="HTML";
-            return aSpan[i];
+            result.push(aSpan[i]);
         } 
+        return  result;
     }
     findAllHtmlSpanInOneSection("news-normal");
     function findListItem(sectionId, spanCont) {
