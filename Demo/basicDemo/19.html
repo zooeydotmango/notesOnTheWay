@@ -42,23 +42,42 @@
 
     function findAllHtmlSpanInOneSection(sectionId) {
         // 返回某个section下所有span中内容为HTML的span标签
-        let aSpan= document.getElementById("sectionId").getElementsByTagName("span");
+        let aSpan= document.getElementById(sectionId).getElementsByTagName("span");
         let result=[];
         for(let i=0;i< aSpan.length;i++){
-            aSpan[i].innerHTML="HTML";
-            result.push(aSpan[i]);
+            if(aSpan[i].innerHTML = "HTML") {
+                result.push(aSpan[i]);
+            }
         } 
         return  result;
     }
-    findAllHtmlSpanInOneSection("news-normal");
+
     function findListItem(sectionId, spanCont) {
         // 返回某个section下，所有所包含span内容为spanCont的LI标签
+        let aSpan=document.getElementById(sectionId).getElementsByTagName('span');
+        let result=[];
+        for(let i=0;i<aSpan.length;i++){
+            if(aSpan[i].innerHTML=spanCont){
+                result.push(aSpan[i].parentNode);
+            }
+        }
+        return result;
     }
 
     function getActiveLinkContent(sectionId) {
         // 返回某个section下，class为active的链接中包含的文字内容
+        let aLink= document.getElementById(sectionId).getElementsByClassName('active');
+        let result=[];
+        for (let i=0;i<aLink.length;i++){
+            result.push(aLink[i].innerHTML);
+        }
+        return result;
     }
 
+    console.log(getAllListItem());
+    console.log(findAllHtmlSpanInOneSection("news-top"));
+    console.log(findListItem("news-normal", "JS"));
+    console.log(getActiveLinkContent("news-top"));
 </script>
 </body>
 </html>
