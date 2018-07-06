@@ -3,24 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <title>Event</title>
+    <style>
+        select {
+            display: none;
+        }
+        .palette {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .palette li {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #000;
+            cursor: pointer;
+        }
+    </style>
     <script>
         window.onload=function () {
+            //1
             let oText=document.getElementById("name");
             let oBtn=document.getElementById("submit-btn");
-            oBtn.onclick=function () {
+            oBtn.onclick=function log() {
                 console.log(oText.value);
             };
-            oText.onkeydown=function () {
-                console.log("1");
+            oText.onkeydown=function (event) {
+                switch (event.key){
+                    case "Enter":
+                        console.log(oText.value);
+                        break;
+                    case "Escape":
+                        oText.value="";
+                        break;
+                    default:
+                        return;
+                }
             };
+            //2
+            let oSchool=document.getElementById("school");
+            let oCompany=document.getElementById("company");
+            let oSchSelect=document.getElementById("school-select");
+            let oComSelect=document.getElementById("company-select");
+            oSchool.onclick=function () {
+                oSchSelect.style.display="block";
+                oComSelect.style.display="none";
+            };
+            oCompany.onclick=function () {
+                oSchSelect.style.display="none";
+                oComSelect.style.display="block";
+            };
+            //3
+            let list = document.querySelectorAll("li");
+            for (let i = 0, len = list.length; i < len; i++) {
+                list[i].onclick = function(e) {
+                    let t = e.target;
+                    let c = t.style.backgroundColor;
+                    let p = document.getElementsByClassName("color-picker")[0];
+                    p.innerHTML = c;
+                    p.style.color = c;
+
+                }
+            }
         }
     </script>
 </head>
 <body>
 <input id="name" type="text">
 <button id="submit-btn">Submit</button>
-<p>当点击按钮 submit-btn 时，在console中输出 name 中的内容</p>
-<p>在输入过程中，如果按回车键，则同样执行上一条的需求</p>
-<p>在输入过程中，如果按 ESC 键，则把输入框中的内容清空</p>
+<ul>
+<li>当点击按钮 submit-btn 时，在console中输出 name 中的内容</li>
+<li>在输入过程中，如果按回车键，则同样执行上一条的需求</li>
+<li>在输入过程中，如果按 ESC 键，则把输入框中的内容清空</li>
+</ul>
+<hr>
+<label>
+    <input id="school" name="status" type="radio">
+    School
+</label>
+<label>
+    <input id="company" name="status" type="radio">
+    Company
+</label>
+
+<select id="school-select">
+    <option>北京邮电大学</option>
+    <option>黑龙江大学</option>
+    <option>华中科技大学</option>
+</select>
+
+<select id="company-select">
+    <option>百度</option>
+    <option>爱奇艺</option>
+</select>
+<ul>
+    <li>当用户选择了 School 的单选框时，显示 School 的下拉选项，隐藏 Company 的下拉选项</li>
+    <li>当用户选择了 School 的单选框时，显示 Company 的下拉选项，隐藏 School 的下拉选项</li>
+</ul>
+<hr>
+<ul class="palette">
+    <li style="background-color:crimson"></li>
+    <li style="background-color:bisque"></li>
+    <li style="background-color:blueviolet"></li>
+    <li style="background-color:coral"></li>
+    <li style="background-color:chartreuse"></li>
+    <li style="background-color:darkolivegreen"></li>
+    <li style="background-color:cyan"></li>
+    <li style="background-color:#194738"></li>
+</ul>
+
+<p class="color-picker"></p>
+<p>点击某一个 Li 标签时，将 Li 的背景色显示在 P 标签内，并将 P 标签中的文字颜色设置成 Li 的背景色</p>
 </body>
 </html>
