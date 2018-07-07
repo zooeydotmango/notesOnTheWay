@@ -53,16 +53,25 @@
                 oComSelect.style.display="block";
             };
             //3
-            let list = document.querySelectorAll("li");
-            for (let i = 0, len = list.length; i < len; i++) {
-                list[i].onclick = function(e) {
-                    let t = e.target;
-                    let c = t.style.backgroundColor;
-                    let p = document.getElementsByClassName("color-picker")[0];
-                    p.innerHTML = c;
-                    p.style.color = c;
-
-                }
+            // let list = document.querySelectorAll("li");
+            // for (let i = 0, len = list.length; i < len; i++) {
+            //     list[i].onclick = function(e) {
+            //         let t = e.target;
+            //         let c = t.style.backgroundColor;
+            //         let p = document.getElementsByClassName("color-picker")[0];
+            //         p.innerHTML = c;
+            //         p.style.color = c;
+            //
+            //     }
+            // }
+            //3重构
+            let oUl=document.querySelector(".palette"),
+                p=document.querySelector(".color-picker");
+            oUl.onclick=function (event) {
+                let e=event||window.event;
+                let target=event.target||event.srcElement;
+                p.innerHTML=target.style.backgroundColor;
+                p.style.color=target.style.backgroundColor;
             }
         }
     </script>
