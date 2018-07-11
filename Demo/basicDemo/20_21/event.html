@@ -103,10 +103,10 @@
                 }
             }
             oBtnFade.onclick= function () {
-            if (oBtnFade.style.opacity==1){
+            if (getComputedStyle(oFade).opacity==1){
                 console.log("1");
                     setTimeout(fade1,30);
-            }else if(oBtnFade.style.opacity==0){
+            }else if(getComputedStyle(oFade).opacity==0){
                     setTimeout(fade2,30);
             }else {
                 console.log("出错");
