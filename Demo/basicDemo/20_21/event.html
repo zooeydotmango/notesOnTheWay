@@ -76,9 +76,43 @@
             //4
             let oFade=document.getElementById("fade-obj");
             let oBtnFade=document.getElementById("fade-btn");
-            function fade() {
-
+            let opacity = getComputedStyle(oFade).opacity*100;
+            //setTimeout方式
+            function fade1() {
+                opacity=opacity-5;
+                oFade.style.opacity=opacity/100;
+                oBtnFade.disabled=true;
+                console.log(opacity);
+                if(opacity>0){
+                    setTimeout(fade1,30);
+                }else{
+                    oBtnFade.disabled=false;
+                    oBtnFade.innerText = "淡入";
+                }
             }
+            function fade2() {
+                opacity=opacity+5;
+                oFade.style.opacity=opacity/100;
+                oBtnFade.disabled=true;
+                
+                if(opacity<100){
+                    setTimeout(fade2,30);
+                }else {
+                    oBtnFade.disabled=false;
+                    oBtnFade.innerText="淡出";
+                }
+            }
+            oBtnFade.onclick= function () {
+            if (oBtnFade.style.opacity==1){
+                console.log("1");
+                    setTimeout(fade1,30);
+            }else if(oBtnFade.style.opacity==0){
+                    setTimeout(fade2,30);
+            }else {
+                console.log("出错");
+            }
+            };
+            
         }
     </script>
 </head>
