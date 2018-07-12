@@ -13,6 +13,7 @@
             list-style: none;
         }
         .palette li {
+            float: left;
             width: 40px;
             height: 40px;
             border: 1px solid #000;
@@ -102,17 +103,99 @@
                     oBtnFade.innerText="淡出";
                 }
             }
+            //合并fade
+            function fade(op){
+                if (opacity>op){
+                    opacity -=5;
+                    oFade.style.opacity=opacity/100;
+                    oBtnFade.disabled=true;
+                    setTimeout(function () {
+                        fade(op);
+                    },30);
+                } else if(opacity<op){
+                    opacity +=5;
+                    oFade.style.opacity=opacity/100;
+                    oBtnFade.disabled=true;
+                    setTimeout(function () {
+                        fade(op);
+                    },30);
+                }else{
+                    oBtnFade.disabled=false;
+                    if(op===0){
+                        oBtnFade.innerText = "淡入";
+                    }else if (op===100){
+                        oBtnFade.innerText="淡出";
+                    } else {
+                        console.log("目标透明度为0或100！");
+                    }
+                }
+            }
             oBtnFade.onclick= function () {
             if (getComputedStyle(oFade).opacity==1){
-                console.log("1");
-                    setTimeout(fade1,30);
+                    setTimeout(function () {
+                        fade(0);
+                    },30);
             }else if(getComputedStyle(oFade).opacity==0){
-                    setTimeout(fade2,30);
+                setTimeout(function () {
+                    fade(100);
+                },30);
             }else {
                 console.log("出错");
             }
             };
-            
+            //setInterval方式
+            function fadeInterval(op,timer){
+                if(opacity>op){
+                    opacity -=5;
+                    oFade.style.opacity=opacity/100;
+                    oBtnFade.disabled=true;
+                }else if (opacity<op){
+                    opacity +=5;
+                    oFade.style.opacity=opacity/100;
+                    oBtnFade.disabled=true;
+                } else {
+                    clearInterval(timer);
+                    oBtnFade.disabled = false;
+                    if (op === 0) {
+                        oBtnFade.innerText = "淡入";
+                    } else if (op === 100) {
+                        oBtnFade.innerText = "淡出";
+                    } else {
+                        console.log("目标透明度为0或100！");
+                    }
+                }
+            }
+            oBtnFade.onclick=function ({}) {
+                if (getComputedStyle(oFade).opacity==1){
+                    let timer=setInterval(function () {
+                        fadeInterval(0,timer);
+                    },30);
+                }else if(getComputedStyle(oFade).opacity==0){
+                    let timer=setInterval(function () {
+                        fadeInterval(100,timer);
+                    },30);
+                }else {
+                    console.log("出错");
+                }
+            }
+            //5
+            let oAnimation=document.getElementById("animation");
+            oAnimation.style.background="url(http://ife.baidu.com/2016/static/img/erik_ce204002.jpg) no-repeat 0px 0px";
+            let aniFlag=0;
+            let aniNum=0;
+            let timer1=setInterval(function () {
+                if (aniFlag===0){
+                    aniNum++;
+                    if (aniNum===16){
+                    aniFlag=1;
+                    }}else {
+                        aniNum--;
+                        if (aniNum===0){
+                            aniFlag=0;
+                    }
+                }
+                oAnimation.style.backgroundPositionY="-"+ aniNum*480 +"px";
+            },100);
         }
     </script>
 </head>
@@ -175,3 +258,6 @@
     <li>淡入动画结束后，按钮文字变为“淡出”</li>
     <li>暂时不要使用 CSS animation （以后我们再学习）</li>
 </ul>
+<hr>
+<p>实现一个帧动画</p>
+<div id="animation" style="width: 480px;height: 480px;"></div>
