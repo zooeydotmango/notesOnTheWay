@@ -20,6 +20,7 @@
             let numB=document.getElementById('num-b');
             let p=document.getElementById('result');
             let aRadio=document.querySelectorAll('input[type="radio"][name="math-obj"]');
+            //Number
             numA.onclick=function(){
                 aRadio[0].checked=true;
             };
@@ -96,7 +97,7 @@
                     p.innerText=Math.min(numA.value ,numB.value);
                 }
             };
-            //重构
+            //Number重构
             // for (let i=0;i<aRadio.length;i++){
             //     if (aRadio[i].checked === true){
             //         if(!isNaN(aRadio[i].parentNode.nextSibling.value)){
@@ -106,13 +107,70 @@
             //         }
             //     }
             // }
+            //String
+            let aRadioStr=document.querySelectorAll('input[type="radio"][name="str-obj"]');
+            let aBtnStr=document.getElementsByTagName('div')[3].getElementsByTagName('button');
+            let numAStr=document.getElementById('num-a-str');
+            let numBStr=document.getElementById('num-b-str');
+            let areaAStr=document.getElementById('str-a');
+            let areaBStr=document.getElementById('str-b');
+            let pStr=document.getElementById('result-str');
+            areaAStr.onclick=function () {
+                aRadioStr[0].checked=true;
+            };
+            areaBStr.onclick=function () {
+                aRadioStr[1].checked=true;
+            };
+            for (let i=0;i<aBtnStr.length;i++){
+                switch (i){
+                    case 0:
+                        aBtnStr[i].onclick=function () {
+                            for (let i=0;i<aRadioStr.length;i++){
+                                if (aRadioStr[i].checked===true){
+                                    pStr.innerText= aRadioStr[i].parentNode.nextSibling.nextSibling.value.length;
+                                }
+                            }
+                        };
+                        break;
+                    case 1:
+                        aBtnStr[i].onclick=function () {
+                            for (let i=0;i<aRadioStr.length;i++){
+                                if (aRadioStr[i].checked===true){
+                                    pStr.innerText= aRadioStr[i].parentNode.nextSibling.nextSibling.value.split('')[2];
+                                }
+                            }
+                        };
+                        break;
+                    case 2:
+                        aBtnStr[i].onclick=function () {
+                            pStr.innerText=areaAStr.value.concat(areaBStr.value);
+                        };
+                        break;
+                    case 3:
+                        aBtnStr[i].onclick=function () {
+                            if (areaBStr.value && areaAStr.value){
+                                if (areaAStr.value.indexOf(areaBStr.value)!== -1){
+                                    console.log(typeof areaAStr.value.indexOf(areaBStr.value));
+                                    pStr.innerText="StringB在StringA中的位置：第"+ areaAStr.value.indexOf(areaBStr.value) + 10+"位";//数字
+                                } else {
+                                    pStr.innerText="StringB在StringA中找不到";
+                                }
+                            } else {
+                                pStr.innerText="请输入字符串";
+                            }
+                        };
+                        break;
+                }
+                        
+            } 
+            
         }
     </script>
 </head>
 <body>
 <div>
-    <label>Number A:<input id="radio-a" type="radio" name="math-obj" value="a"></label><input id="num-a" type="text">
-    <label>Number B:<input id="radio-b" type="radio" name="math-obj" value="b"></label><input id="num-b" type="text">
+    <label>Number A:<input id="radio-a" type="radio" name="math-obj" value="a"></label><input id="num-a" type="text" placeholder="请输入数字">
+    <label>Number B:<input id="radio-b" type="radio" name="math-obj" value="b"></label><input id="num-b" type="text" placeholder="请输入数字">
 </div>
 <div>
     <button>判断当前选中的输入框输入内容是否为数字</button>
@@ -128,15 +186,15 @@
 <hr>
 <div>
     <label>String A:
-        <input id="radio-a1" type="radio" checked="true" name="str-obj" value="a">
+        <input id="radio-a-str" type="radio" checked="true" name="str-obj" value="a">
     </label>
     <textarea id="str-a"></textarea>
     <label>String B:
-        <input id="radio-b1" type="radio" name="str-obj" value="b">
+        <input id="radio-b-str" type="radio" name="str-obj" value="b">
     </label>
     <textarea id="str-b"></textarea>
-    <label>Num A：<input id="num-a1" type="number" value="0"></label>
-    <label>Num B：<input id="num-b1" type="number" value="1"></label>
+    <label>Num A：<input id="num-a-str" type="number" value="0"></label>
+    <label>Num B：<input id="num-b-str" type="number" value="1"></label>
 </div>
 <div>
     <button>获取当前选中输入的内容长度</button>
@@ -152,6 +210,6 @@
     <button>把所选输入框中内容的半角空格全部去除</button>
     <button>把所选输入框中内容的a全部替换成另外一个输入框中的内容</button>
 </div>
-<p id="result1"></p>
+<p id="result-str"></p>
 </body>
 </html>
