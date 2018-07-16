@@ -3,6 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <title>Number</title>
+    <script>
+        window.onload=function () {
+            let aBtn=document.getElementsByTagName('div')[1].getElementsByTagName('button');
+            let numA=document.getElementById('num-a');
+            let numB=document.getElementById('num-b');
+            let p=document.getElementById('result');
+            let aRadio=document.querySelectorAll('input[type="radio"][name="math-obj"]');
+            aBtn[0].onclick=function () {
+                for (let i=0;i<aRadio.length;i++){
+                    if (aRadio[i].checked === true){
+                        if(!isNaN(aRadio[i].parentNode.nextSibling.value)){
+                            p.innerText="当前输入的内容为数字。";
+                        }else{
+                            p.innerText="请输入数字！";
+                        }
+                    } 
+                } 
+            };
+            aBtn[1].onclick=function () {
+                if (!isNaN(numA.value)&&!isNaN(numB.value)){
+                    p.innerText=Math.round(numA.value * Math.pow(10, numB.value))/Math.pow(10, numB.value);
+                } 
+            };
+            aBtn[2].onclick=function () {
+                for (let i=0;i<aRadio.length;i++){
+                    if (aRadio[i].checked === true){
+                        if (!isNaN(aRadio[i].parentNode.nextSibling.value)){
+                            p.innerText="当前选中数字的绝对值为："+Math.abs(aRadio[i].parentNode.nextSibling.value);
+                        }else{
+                            p.innerText="请输入数字！";
+                        }
+                    } 
+                } 
+            };
+            aBtn[3].onclick=function () {
+                for (let i=0;i<aRadio.length;i++){
+                    if (aRadio[i].checked === true){
+                        if (!isNaN(aRadio[i].parentNode.nextSibling.value)){
+                            p.innerText="当前选中数字的绝对值为："+Math.ceil(aRadio[i].parentNode.nextSibling.value);
+                        }else{
+                            p.innerText="请输入数字！";
+                        }
+                    }
+                }
+            };
+            aBtn[4].onclick=function () {
+                for (let i=0;i<aRadio.length;i++){
+                    if (aRadio[i].checked === true){
+                        if (!isNaN(aRadio[i].parentNode.nextSibling.value)){
+                            p.innerText="当前选中数字的绝对值为："+Math.floor(aRadio[i].parentNode.nextSibling.value);
+                        }else{
+                            p.innerText="请输入数字！";
+                        }
+                    }
+                }
+            };
+            aBtn[5].onclick=function () {
+                for (let i=0;i<aRadio.length;i++){
+                    if (aRadio[i].checked === true){
+                        if (!isNaN(aRadio[i].parentNode.nextSibling.value)){
+                            p.innerText="当前选中数字的绝对值为："+Math.round(aRadio[i].parentNode.nextSibling.value);
+                        }else{
+                            p.innerText="请输入数字！";
+                        }
+                    }
+                }
+            };
+            aBtn[6].onclick=function () {
+                if (!isNaN(numA.value)&&!isNaN(numB.value)){
+                    p.innerText=Math.max(numA.value ,numB.value);
+                }
+            };
+            aBtn[7].onclick=function () {
+                if (!isNaN(numA.value)&&!isNaN(numB.value)){
+                    p.innerText=Math.min(numA.value ,numB.value);
+                }
+            };
+            //重构
+            // for (let i=0;i<aRadio.length;i++){
+            //     if (aRadio[i].checked === true){
+            //         if(!isNaN(aRadio[i].parentNode.nextSibling.value)){
+            //             let curValue=aRadio[i].parentNode.nextSibling.value;
+            //         }else{
+            //             p.innerText="请输入数字！";
+            //         }
+            //     }
+            // }
+        }
+    </script>
 </head>
 <body>
 <div>
