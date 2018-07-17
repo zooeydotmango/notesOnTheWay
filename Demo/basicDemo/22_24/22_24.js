@@ -252,10 +252,10 @@ window.onload = function () {
     }
 
     /*
-实现一个字符串头尾去除空格的函数
-注意需要去除的空格，包括全角、半角空格
-暂时不需要学习和使用正则表达式的方式
-*/
+    实现一个字符串头尾去除空格的函数
+    注意需要去除的空格，包括全角、半角空格
+    暂时不需要学习和使用正则表达式的方式
+    */
     function diyTrim(str) {
         let result = "";
         let arr= str.split('');
@@ -270,6 +270,7 @@ window.onload = function () {
     }
 
 // 测试用例
+    console.log("\n测试用例：");
     console.log(diyTrim(' a f b    ')); // ->a f b
     console.log(diyTrim('    ffdaf    ')); // ->ffdaf
     console.log(diyTrim('1    ')); // ->1
@@ -295,9 +296,142 @@ window.onload = function () {
     }
 
 // 测试用例
+    console.log("\n测试用例：");
     console.log(removeRepetition("aaa")); // ->a
     console.log(removeRepetition("abbba")); // ->aba
     console.log(removeRepetition("aabbaabb")); // ->abab
     console.log(removeRepetition("")); // ->
     console.log(removeRepetition("abc")); // ->abc
 };
+
+//Object
+let tree = {
+    "id": 0,
+    "name": "root",
+    "left": {
+        "id": 1,
+        "name": "Simon",
+        "left": {
+            "id": 3,
+            "name": "Carl",
+            "left": {
+                "id": 7,
+                "name": "Lee",
+                "left": {
+                    "id": 11,
+                    "name": "Fate"
+                }
+            },
+            "right": {
+                "id": 8,
+                "name": "Annie",
+                "left": {
+                    "id": 12,
+                    "name": "Saber"
+                }
+            }
+        },
+        "right": {
+            "id": 4,
+            "name": "Tony",
+            "left": {
+                "id": 9,
+                "name": "Candy"
+            }
+        }
+    },
+    "right": {
+        "id": 2,
+        "name": "right",
+        "left": {
+            "id": 5,
+            "name": "Carl",
+        },
+        "right": {
+            "id": 6,
+            "name": "Carl",
+            "right": {
+                "id": 10,
+                "name": "Kai"
+            }        
+        }
+    }
+};
+
+// 假设id和name均不会重复，根据输入name找到对应的id
+function findIdByName(name) {
+   let find=function (obj) {
+       if (!obj){
+           return;
+       } 
+       if (obj.name === name){
+           return obj.id;
+       } 
+       return  find(obj.left) || find(obj.right);
+   };
+   return find(tree);
+}
+console.log("假设id和name均不会重复，根据输入name找到对应的id:");
+console.log("root","id:",findIdByName("root"));
+console.log("Carl","id:",findIdByName("Carl"));
+console.log("Kai","id:",findIdByName("Kai"));
+
+
+// 假设id和name均不会重复，根据输入id找到对应的name
+function findNameById(id) {
+    let find=function (obj) {
+        if (!obj){
+            return;
+        }
+        if (obj.id === id){
+            return obj.name;
+        } 
+        return  find(obj.left) || find(obj.right);
+    };
+    return find(tree);
+}
+console.log("假设id和name均不会重复，根据输入id找到对应的name:");
+console.log("id:0",":",findNameById(0));
+console.log("id:11",":",findNameById(11));
+console.log("id:10",":",findNameById(10));
+
+// 把这个对象中所有的名字以“前序遍历”的方式全部输出到console中
+function getListWithDLR() {
+    //前序遍历，根节点，左子树，右子树
+    let loopDLR=function (obj) {
+        if (!obj){return;} 
+        console.log(obj.name);
+        loopDLR(obj.left);
+        loopDLR(obj.right);
+    };
+    loopDLR(tree);
+}
+// 把这个对象中所有的名字以“中序遍历”的方式全部输出到console中
+function getListWithLDR() {
+    //中序遍历，左子树，根节点，右子树
+    let loopLDR=function (obj) {
+        if (!obj){return;}
+        loopLDR(obj.left);
+        console.log(obj.name);
+        loopLDR(obj.right);
+    };
+    loopLDR(tree);
+}
+
+// 把这个对象中所有的名字以“后序遍历”的方式全部输出到console中
+function getListWithLRD() {
+    //后序遍历，左子树，右子树，根节点
+    let loopLRD=function (obj) {
+        if (!obj){return;}
+        loopLRD(obj.right);
+        console.log(obj.name);
+        loopLRD(obj.left);
+    };
+    loopLRD(tree);
+}
+console.log("前序遍历：");
+getListWithDLR();
+console.log("中序遍历：");
+getListWithLDR();
+console.log("后序遍历：");
+getListWithLRD();
