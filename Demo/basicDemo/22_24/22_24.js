@@ -101,7 +101,7 @@ window.onload = function () {
                 break;
         }
     }
-
+    
     //String
     let aRadioStr = document.querySelectorAll('input[type="radio"][name="str-obj"]');
     let aBtnStr = document.getElementsByTagName('div')[3].getElementsByTagName('button');
@@ -250,7 +250,7 @@ window.onload = function () {
         }
 
     }
-
+    
     /*
     实现一个字符串头尾去除空格的函数
     注意需要去除的空格，包括全角、半角空格
@@ -269,7 +269,7 @@ window.onload = function () {
         return result
     }
 
-// 测试用例
+    // 测试用例
     console.log("\n测试用例：");
     console.log(diyTrim(' a f b    ')); // ->a f b
     console.log(diyTrim('    ffdaf    ')); // ->ffdaf
@@ -279,7 +279,7 @@ window.onload = function () {
     console.log(diyTrim(' ')); // ->
     console.log(diyTrim('　')); // ->
     console.log(diyTrim('')); // ->
-
+    
     /*
     去掉字符串str中，连续重复的地方
     */
@@ -295,14 +295,14 @@ window.onload = function () {
         return result;
     }
 
-// 测试用例
+    // 测试用例
     console.log("\n测试用例：");
     console.log(removeRepetition("aaa")); // ->a
     console.log(removeRepetition("abbba")); // ->aba
     console.log(removeRepetition("aabbaabb")); // ->abab
     console.log(removeRepetition("")); // ->
     console.log(removeRepetition("abc")); // ->abc
-};
+
 
 //Object
 let tree = {
@@ -417,7 +417,6 @@ function getListWithLDR() {
     };
     loopLDR(tree);
 }
-
 // 把这个对象中所有的名字以“后序遍历”的方式全部输出到console中
 function getListWithLRD() {
     //后序遍历，左子树，右子树，根节点
@@ -435,3 +434,12 @@ console.log("中序遍历：");
 getListWithLDR();
 console.log("后序遍历：");
 getListWithLRD();
+
+//Array
+let queue = ["apple", "pear"];
+let sQue=document.getElementById('queue-input');
+let sQueCont=document.getElementById('queue-cont');
+
+
+sQueCont.innerText="队列内容："+queue.reverse().join('-&gt;');
+};
