@@ -81,16 +81,7 @@ window.onload=function () {
                 p.innerText=Math.min(numA.value ,numB.value);
             }
         };
-        //Number重构
-        // for (let i=0;i<aRadio.length;i++){
-        //     if (aRadio[i].checked === true){
-        //         if(!isNaN(aRadio[i].parentNode.nextSibling.value)){
-        //             let curValue=aRadio[i].parentNode.nextSibling.value;
-        //         }else{
-        //             p.innerText="请输入数字！";
-        //         }
-        //     }
-        // }
+
         //String
         let aRadioStr=document.querySelectorAll('input[type="radio"][name="str-obj"]');
         let aBtnStr=document.getElementsByTagName('div')[3].getElementsByTagName('button');
@@ -134,8 +125,9 @@ window.onload=function () {
                     aBtnStr[i].onclick=function () {
                         if (areaBStr.value && areaAStr.value){
                             if (areaAStr.value.indexOf(areaBStr.value)!== -1){
-                                console.log(typeof areaAStr.value.indexOf(areaBStr.value));
-                                pStr.innerText="StringB在StringA中的位置：第"+ areaAStr.value.indexOf(areaBStr.value) + 10+"位";//数字
+                                let a=areaAStr.value.indexOf(areaBStr.value);
+                                a++;
+                                pStr.innerText="StringB在StringA中的位置：第"+ a+"位";//直接+1会变成字符串相连，待解决
                             } else {
                                 pStr.innerText="StringB在StringA中找不到";
                             }
@@ -144,6 +136,97 @@ window.onload=function () {
                         }
                     };
                     break;
+                case 4:
+                    aBtnStr[i].onclick=function () {
+                        if (areaBStr.value && areaAStr.value){
+                            if (areaBStr.value.lastIndexOf(areaAStr.value)!== -1){
+                                let a=areaBStr.value.lastIndexOf(areaAStr.value);
+                                a++;
+                                pStr.innerText="StringA在StringB中最后出现的位置：第"+ a+"位";//数字
+                            } else {
+                                pStr.innerText="StringA在StringB中找不到";
+                            }
+                        } else {
+                            pStr.innerText="请输入字符串";
+                        }
+                    };
+                    break;
+                case 5:
+                    aBtnStr[i].onclick=function () {
+                        for (let i=0;i<aRadioStr.length;i++){
+                            if (aRadioStr[i].checked===true){
+                                pStr.innerText= aRadioStr[i].parentNode.nextSibling.nextSibling.value.slice(numAStr.value,numBStr.value);
+                            }
+                        }
+                    };
+                    break;
+                case 6:
+                    aBtnStr[i].onclick=function () {
+                        for (let i=0;i<aRadioStr.length;i++){
+                            if (aRadioStr[i].checked===true){
+                                pStr.innerText= aRadioStr[i].parentNode.nextSibling.nextSibling.rows;
+                            }
+                        }
+                    };
+                    break;
+                case 7:
+                    aBtnStr[i].onclick=function () {
+                        for (let i=0;i<aRadioStr.length;i++){
+                            if (aRadioStr[i].checked===true){
+                                pStr.innerText= aRadioStr[i].parentNode.nextSibling.nextSibling.value.substr(numAstr.value,numBStr.value);
+                            }
+                        }
+                    };
+                    break;
+                case 7:
+                    aBtnStr[i].onclick=function () {
+                        for (let i=0;i<aRadioStr.length;i++){
+                            if (aRadioStr[i].checked===true){
+                                pStr.innerText= aRadioStr[i].parentNode.nextSibling.nextSibling.value.toUpperCase();
+                            }
+                        }
+                    };
+                    break;
+                case 8:
+                    aBtnStr[i].onclick=function () {
+                        for (let i=0;i<aRadioStr.length;i++){
+                            if (aRadioStr[i].checked===true){
+                                pStr.innerText= aRadioStr[i].parentNode.nextSibling.nextSibling.value.toLowerCase();
+                            }
+                        }
+                    };
+                    break;
+                case 9:
+                    aBtnStr[i].onclick=function () {
+                        for (let i=0;i<aRadioStr.length;i++){
+                            if (aRadioStr[i].checked===true){
+                                pStr.innerText= aRadioStr[i].parentNode.nextSibling.nextSibling.value.toLowerCase();
+                            }
+                        }
+                    };
+                    break;
+                case 10:
+                    aBtnStr[i].onclick=function () {
+                        for (let i=0;i<aRadioStr.length;i++){
+                            if (aRadioStr[i].checked===true){
+                                pStr.innerText= aRadioStr[i].parentNode.nextSibling.nextSibling.value.replace(/\s/g,'');
+                            }
+                        }
+                    };
+                    break;
+                case 11:
+                    aBtnStr[i].onclick=function () {
+                        if(aRadioStr[0].checked===true){
+                            pStr.innerText=areaAStr.value.replace(/a/g,areaBStr.value);
+                        }else if (aRadioStr[1].checked===true){
+                            pStr.innerText=areaBStr.value.replace(/a/g,areaAStr.value);
+                        } else {
+                            pStr.innerText="请选择并输入";
+                        }
+                    };
+                    break;
+
+
             }
 
         }
