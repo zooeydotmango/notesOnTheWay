@@ -198,20 +198,11 @@ window.onload = function () {
                     }
                 };
                 break;
-            case 7:
-                aBtnStr[i].onclick = function () {
-                    for (let i = 0; i < aRadioStr.length; i++) {
-                        if (aRadioStr[i].checked === true) {
-                            pStr.innerText = aRadioStr[i].parentNode.nextSibling.nextSibling.value.toUpperCase();
-                        }
-                    }
-                };
-                break;
             case 8:
                 aBtnStr[i].onclick = function () {
                     for (let i = 0; i < aRadioStr.length; i++) {
                         if (aRadioStr[i].checked === true) {
-                            pStr.innerText = aRadioStr[i].parentNode.nextSibling.nextSibling.value.toLowerCase();
+                            pStr.innerText = aRadioStr[i].parentNode.nextSibling.nextSibling.value.toUpperCase();
                         }
                     }
                 };
@@ -229,12 +220,21 @@ window.onload = function () {
                 aBtnStr[i].onclick = function () {
                     for (let i = 0; i < aRadioStr.length; i++) {
                         if (aRadioStr[i].checked === true) {
-                            pStr.innerText = aRadioStr[i].parentNode.nextSibling.nextSibling.value.replace(/\s/g, '');
+                            pStr.innerText = aRadioStr[i].parentNode.nextSibling.nextSibling.value.toLowerCase();
                         }
                     }
                 };
                 break;
             case 11:
+                aBtnStr[i].onclick = function () {
+                    for (let i = 0; i < aRadioStr.length; i++) {
+                        if (aRadioStr[i].checked === true) {
+                            pStr.innerText = aRadioStr[i].parentNode.nextSibling.nextSibling.value.replace(/\s/g, '');
+                        }
+                    }
+                };
+                break;
+            case 12:
                 aBtnStr[i].onclick = function () {
                     if (aRadioStr[0].checked === true) {
                         pStr.innerText = areaAStr.value.replace(/a/g, areaBStr.value);
@@ -257,7 +257,6 @@ window.onload = function () {
     暂时不需要学习和使用正则表达式的方式
     */
     function diyTrim(str) {
-        let result = "";
         let arr= str.split('');
         while(arr[0] ==' '||arr[0]=='　'){
             arr.shift();
@@ -284,7 +283,6 @@ window.onload = function () {
     去掉字符串str中，连续重复的地方
     */
     function removeRepetition(str) {
-        let result = "";
         let arr=str.split('');
         for (let i=1;i<arr.length;i++){
             while(arr[i]===arr[i-1]){
@@ -435,11 +433,87 @@ getListWithLDR();
 console.log("后序遍历：");
 getListWithLRD();
 
-//Array
+//Queue
 let queue = ["apple", "pear"];
-let sQue=document.getElementById('queue-input');
-let sQueCont=document.getElementById('queue-cont');
+let queueInput=document.getElementById('queue-input');
+let queueCont=document.getElementById('queue-cont');
+let oSec5=document.querySelector('.section5');
 
+oSec5.addEventListener('click',function (e) {
+    e = e||window.event;
+    let queueInputValue=queueInput.value;
+    let target=e.target||e.srcElement;
+    switch (target.id){
+        case 'in-btn':
+            queue.push(queueInputValue);
+            queueCont.innerText=`队列内容：${queue.join('->')}`;
+            break;
+        case 'out-btn':
+            queue.shift();
+            queueCont.innerText=`队列内容：${queue.join('->')}`;
+            break;
+        case 'font-btn':
+            queueCont.innerText=`队头元素：${queue[0]}`;
+            break;
+        case 'empty-btn':
+            queueCont.innerText=queue.length?'队列非空':'队列为空';
+            break;
+    }
+    
+});
 
-sQueCont.innerText="队列内容："+queue.reverse().join('-&gt;');
+//Stack
+let stack = ["apple", "pear"];
+let stackInput=document.getElementById('stack-input');
+let stackCont=document.getElementById('stack-cont');
+let oSec6=document.querySelector('.section6');
+
+oSec6.addEventListener('click',function (e) {
+    e=e||window.event;
+    let target=e.target||e.srcElement;
+    let stackInputValue=stackInput.value;
+    switch (target.id){
+        case 'push-btn':
+            stack.push(stackInputValue);
+            stackCont.innerText=`栈内容：${stack.join('->')}`;
+            break;
+        case 'pop-btn':
+            stack.pop();
+            stackCont.innerText=`栈内容：${stack.join('->')}`;
+            break;
+        case 'font-btn-stack':
+            stackCont.innerText=`栈顶元素：${stack[stack.length-1]}`;
+            break;
+        case 'empty-btn-stack':
+            stackCont.innerText=stack.length?'栈非空':'栈为空';
+            break;
+    }
+});
+
+//Stack2
+    let stackInput2=document.getElementById('stack-input2');
+    let stackCont2=document.getElementById('stack-cont2');
+    let oSec7=document.querySelector('.section7');
+
+    oSec7.addEventListener('click',function (e) {
+        e=e||window.event;
+        let target=e.target||e.srcElement;
+        let stackInputValue2=stackInput2.value;
+        switch (target.id){
+            case 'push-btn2':
+                stack.unshift(stackInputValue2);
+                stackCont2.innerText=`栈内容：${stack.join('<-')}`;
+                break;
+            case 'pop-btn2':
+                stack.shift();
+                stackCont2.innerText=`栈内容：${stack.join('<-')}`;
+                break;
+            case 'font-btn-stack2':
+                stackCont2.innerText=`栈顶元素：${stack[0]}`;
+                break;
+            case 'empty-btn-stack2':
+                stackCont2.innerText=stack.length?'栈非空':'栈为空';
+                break;
+        }
+    });
 };
