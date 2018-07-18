@@ -101,7 +101,7 @@ window.onload = function () {
                 break;
         }
     }
-    
+
     //String
     let aRadioStr = document.querySelectorAll('input[type="radio"][name="str-obj"]');
     let aBtnStr = document.getElementsByTagName('div')[3].getElementsByTagName('button');
@@ -250,26 +250,26 @@ window.onload = function () {
         }
 
     }
-    
+
     /*
     实现一个字符串头尾去除空格的函数
     注意需要去除的空格，包括全角、半角空格
     暂时不需要学习和使用正则表达式的方式
     */
     function diyTrim(str) {
-        let arr= str.split('');
-        while(arr[0] ==' '||arr[0]=='　'){
+        let arr = str.split('');
+        while (arr[0] == ' ' || arr[0] == '　') {
             arr.shift();
         }
-        while (arr[arr.length-1] ==' '||arr[arr.length-1]=='　'){
+        while (arr[arr.length - 1] == ' ' || arr[arr.length - 1] == '　') {
             arr.pop();
         }
-        result=arr.join('');
+        result = arr.join('');
         return result
     }
 
     // 测试用例
-    console.log("\n测试用例：");
+    console.log("测试用例：");
     console.log(diyTrim(' a f b    ')); // ->a f b
     console.log(diyTrim('    ffdaf    ')); // ->ffdaf
     console.log(diyTrim('1    ')); // ->1
@@ -278,23 +278,23 @@ window.onload = function () {
     console.log(diyTrim(' ')); // ->
     console.log(diyTrim('　')); // ->
     console.log(diyTrim('')); // ->
-    
+
     /*
     去掉字符串str中，连续重复的地方
     */
     function removeRepetition(str) {
-        let arr=str.split('');
-        for (let i=1;i<arr.length;i++){
-            while(arr[i]===arr[i-1]){
-                arr.splice(i,1);
+        let arr = str.split('');
+        for (let i = 1; i < arr.length; i++) {
+            while (arr[i] === arr[i - 1]) {
+                arr.splice(i, 1);
             }
         }
-        result=arr.join('');
+        result = arr.join('');
         return result;
     }
 
     // 测试用例
-    console.log("\n测试用例：");
+    console.log("测试用例：");
     console.log(removeRepetition("aaa")); // ->a
     console.log(removeRepetition("abbba")); // ->aba
     console.log(removeRepetition("aabbaabb")); // ->abab
@@ -303,217 +303,327 @@ window.onload = function () {
 
 
 //Object
-let tree = {
-    "id": 0,
-    "name": "root",
-    "left": {
-        "id": 1,
-        "name": "Simon",
+    let tree = {
+        "id": 0,
+        "name": "root",
         "left": {
-            "id": 3,
-            "name": "Carl",
+            "id": 1,
+            "name": "Simon",
             "left": {
-                "id": 7,
-                "name": "Lee",
+                "id": 3,
+                "name": "Carl",
                 "left": {
-                    "id": 11,
-                    "name": "Fate"
+                    "id": 7,
+                    "name": "Lee",
+                    "left": {
+                        "id": 11,
+                        "name": "Fate"
+                    }
+                },
+                "right": {
+                    "id": 8,
+                    "name": "Annie",
+                    "left": {
+                        "id": 12,
+                        "name": "Saber"
+                    }
                 }
             },
             "right": {
-                "id": 8,
-                "name": "Annie",
+                "id": 4,
+                "name": "Tony",
                 "left": {
-                    "id": 12,
-                    "name": "Saber"
+                    "id": 9,
+                    "name": "Candy"
                 }
             }
         },
         "right": {
-            "id": 4,
-            "name": "Tony",
+            "id": 2,
+            "name": "right",
             "left": {
-                "id": 9,
-                "name": "Candy"
+                "id": 5,
+                "name": "Carl",
+            },
+            "right": {
+                "id": 6,
+                "name": "Carl",
+                "right": {
+                    "id": 10,
+                    "name": "Kai"
+                }
             }
         }
-    },
-    "right": {
-        "id": 2,
-        "name": "right",
-        "left": {
-            "id": 5,
-            "name": "Carl",
-        },
-        "right": {
-            "id": 6,
-            "name": "Carl",
-            "right": {
-                "id": 10,
-                "name": "Kai"
-            }        
-        }
-    }
-};
+    };
 
 // 假设id和name均不会重复，根据输入name找到对应的id
-function findIdByName(name) {
-   let find=function (obj) {
-       if (!obj){
-           return;
-       } 
-       if (obj.name === name){
-           return obj.id;
-       } 
-       return  find(obj.left) || find(obj.right);
-   };
-   return find(tree);
-}
-console.log("假设id和name均不会重复，根据输入name找到对应的id:");
-console.log("root","id:",findIdByName("root"));
-console.log("Carl","id:",findIdByName("Carl"));
-console.log("Kai","id:",findIdByName("Kai"));
+    function findIdByName(name) {
+        let find = function (obj) {
+            if (!obj) {
+                return;
+            }
+            if (obj.name === name) {
+                return obj.id;
+            }
+            return find(obj.left) || find(obj.right);
+        };
+        return find(tree);
+    }
+
+    console.log("假设id和name均不会重复，根据输入name找到对应的id:");
+    console.log("root", "id:", findIdByName("root"));
+    console.log("Carl", "id:", findIdByName("Carl"));
+    console.log("Kai", "id:", findIdByName("Kai"));
 
 
 // 假设id和name均不会重复，根据输入id找到对应的name
-function findNameById(id) {
-    let find=function (obj) {
-        if (!obj){
-            return;
-        }
-        if (obj.id === id){
-            return obj.name;
-        } 
-        return  find(obj.left) || find(obj.right);
-    };
-    return find(tree);
-}
-console.log("假设id和name均不会重复，根据输入id找到对应的name:");
-console.log("id:0",":",findNameById(0));
-console.log("id:11",":",findNameById(11));
-console.log("id:10",":",findNameById(10));
+    function findNameById(id) {
+        let find = function (obj) {
+            if (!obj) {
+                return;
+            }
+            if (obj.id === id) {
+                return obj.name;
+            }
+            return find(obj.left) || find(obj.right);
+        };
+        return find(tree);
+    }
+
+    console.log("假设id和name均不会重复，根据输入id找到对应的name:");
+    console.log("id:0", ":", findNameById(0));
+    console.log("id:11", ":", findNameById(11));
+    console.log("id:10", ":", findNameById(10));
 
 // 把这个对象中所有的名字以“前序遍历”的方式全部输出到console中
-function getListWithDLR() {
-    //前序遍历，根节点，左子树，右子树
-    let loopDLR=function (obj) {
-        if (!obj){return;} 
-        console.log(obj.name);
-        loopDLR(obj.left);
-        loopDLR(obj.right);
-    };
-    loopDLR(tree);
-}
+    function getListWithDLR() {
+        //前序遍历，根节点，左子树，右子树
+        let loopDLR = function (obj) {
+            if (!obj) {
+                return;
+            }
+            console.log(obj.name);
+            loopDLR(obj.left);
+            loopDLR(obj.right);
+        };
+        loopDLR(tree);
+    }
+
 // 把这个对象中所有的名字以“中序遍历”的方式全部输出到console中
-function getListWithLDR() {
-    //中序遍历，左子树，根节点，右子树
-    let loopLDR=function (obj) {
-        if (!obj){return;}
-        loopLDR(obj.left);
-        console.log(obj.name);
-        loopLDR(obj.right);
-    };
-    loopLDR(tree);
-}
+    function getListWithLDR() {
+        //中序遍历，左子树，根节点，右子树
+        let loopLDR = function (obj) {
+            if (!obj) {
+                return;
+            }
+            loopLDR(obj.left);
+            console.log(obj.name);
+            loopLDR(obj.right);
+        };
+        loopLDR(tree);
+    }
+
 // 把这个对象中所有的名字以“后序遍历”的方式全部输出到console中
-function getListWithLRD() {
-    //后序遍历，左子树，右子树，根节点
-    let loopLRD=function (obj) {
-        if (!obj){return;}
-        loopLRD(obj.right);
-        console.log(obj.name);
-        loopLRD(obj.left);
-    };
-    loopLRD(tree);
-}
-console.log("前序遍历：");
-getListWithDLR();
-console.log("中序遍历：");
-getListWithLDR();
-console.log("后序遍历：");
-getListWithLRD();
+    function getListWithLRD() {
+        //后序遍历，左子树，右子树，根节点
+        let loopLRD = function (obj) {
+            if (!obj) {
+                return;
+            }
+            loopLRD(obj.right);
+            console.log(obj.name);
+            loopLRD(obj.left);
+        };
+        loopLRD(tree);
+    }
+
+    console.log("前序遍历：");
+    getListWithDLR();
+    console.log("中序遍历：");
+    getListWithLDR();
+    console.log("后序遍历：");
+    getListWithLRD();
 
 //Queue
-let queue = ["apple", "pear"];
-let queueInput=document.getElementById('queue-input');
-let queueCont=document.getElementById('queue-cont');
-let oSec5=document.querySelector('.section5');
+    let queue = ["apple", "pear"];
+    let queueInput = document.getElementById('queue-input');
+    let queueCont = document.getElementById('queue-cont');
+    let oSec5 = document.querySelector('.section5');
 
-oSec5.addEventListener('click',function (e) {
-    e = e||window.event;
-    let queueInputValue=queueInput.value;
-    let target=e.target||e.srcElement;
-    switch (target.id){
-        case 'in-btn':
-            queue.push(queueInputValue);
-            queueCont.innerText=`队列内容：${queue.join('->')}`;
-            break;
-        case 'out-btn':
-            queue.shift();
-            queueCont.innerText=`队列内容：${queue.join('->')}`;
-            break;
-        case 'font-btn':
-            queueCont.innerText=`队头元素：${queue[0]}`;
-            break;
-        case 'empty-btn':
-            queueCont.innerText=queue.length?'队列非空':'队列为空';
-            break;
-    }
-    
-});
+    oSec5.addEventListener('click', function (e) {
+        e = e || window.event;
+        let queueInputValue = queueInput.value;
+        let target = e.target || e.srcElement;
+        switch (target.id) {
+            case 'in-btn':
+                queue.push(queueInputValue);
+                queueCont.innerText = `队列内容：${queue.join('->')}`;
+                break;
+            case 'out-btn':
+                queue.shift();
+                queueCont.innerText = `队列内容：${queue.join('->')}`;
+                break;
+            case 'font-btn':
+                queueCont.innerText = `队头元素：${queue[0]}`;
+                break;
+            case 'empty-btn':
+                queueCont.innerText = queue.length ? '队列非空' : '队列为空';
+                break;
+        }
+
+    });
 
 //Stack
-let stack = ["apple", "pear"];
-let stackInput=document.getElementById('stack-input');
-let stackCont=document.getElementById('stack-cont');
-let oSec6=document.querySelector('.section6');
+    let stack = ["apple", "pear"];
+    let stackInput = document.getElementById('stack-input');
+    let stackCont = document.getElementById('stack-cont');
+    let oSec6 = document.querySelector('.section6');
 
-oSec6.addEventListener('click',function (e) {
-    e=e||window.event;
-    let target=e.target||e.srcElement;
-    let stackInputValue=stackInput.value;
-    switch (target.id){
-        case 'push-btn':
-            stack.push(stackInputValue);
-            stackCont.innerText=`栈内容：${stack.join('->')}`;
-            break;
-        case 'pop-btn':
-            stack.pop();
-            stackCont.innerText=`栈内容：${stack.join('->')}`;
-            break;
-        case 'font-btn-stack':
-            stackCont.innerText=`栈顶元素：${stack[stack.length-1]}`;
-            break;
-        case 'empty-btn-stack':
-            stackCont.innerText=stack.length?'栈非空':'栈为空';
-            break;
-    }
-});
-
-//Stack2
-    let stackInput2=document.getElementById('stack-input2');
-    let stackCont2=document.getElementById('stack-cont2');
-    let oSec7=document.querySelector('.section7');
-
-    oSec7.addEventListener('click',function (e) {
-        e=e||window.event;
-        let target=e.target||e.srcElement;
-        let stackInputValue2=stackInput2.value;
-        switch (target.id){
-            case 'push-btn2':
-                stack.unshift(stackInputValue2);
-                stackCont2.innerText=`栈内容：${stack.join('<-')}`;
+    oSec6.addEventListener('click', function (e) {
+        e = e || window.event;
+        let target = e.target || e.srcElement;
+        let stackInputValue = stackInput.value;
+        switch (target.id) {
+            case 'push-btn':
+                stack.push(stackInputValue);
+                stackCont.innerText = `栈内容：${stack.join('->')}`;
                 break;
-            case 'pop-btn2':
-                stack.shift();
-                stackCont2.innerText=`栈内容：${stack.join('<-')}`;
+            case 'pop-btn':
+                stack.pop();
+                stackCont.innerText = `栈内容：${stack.join('->')}`;
                 break;
-            case 'font-btn-stack2':
-                stackCont2.innerText=`栈顶元素：${stack[0]}`;
+            case 'font-btn-stack':
+                stackCont.innerText = `栈顶元素：${stack[stack.length - 1]}`;
                 break;
-            case 'empty-btn-stack2':
-                stackCont2.innerText=stack.length?'栈非空':'栈为空';
+            case 'empty-btn-stack':
+                stackCont.innerText = stack.length ? '栈非空' : '栈为空';
                 break;
         }
     });
+
+//Stack2
+    let stackInput2 = document.getElementById('stack-input2');
+    let stackCont2 = document.getElementById('stack-cont2');
+    let oSec7 = document.querySelector('.section7');
+
+    oSec7.addEventListener('click', function (e) {
+        e = e || window.event;
+        let target = e.target || e.srcElement;
+        let stackInputValue2 = stackInput2.value;
+        switch (target.id) {
+            case 'push-btn2':
+                stack.unshift(stackInputValue2);
+                stackCont2.innerText = `栈内容：${stack.join('<-')}`;
+                break;
+            case 'pop-btn2':
+                stack.shift();
+                stackCont2.innerText = `栈内容：${stack.join('<-')}`;
+                break;
+            case 'font-btn-stack2':
+                stackCont2.innerText = `栈顶元素：${stack[0]}`;
+                break;
+            case 'empty-btn-stack2':
+                stackCont2.innerText = stack.length ? '栈非空' : '栈为空';
+                break;
+        }
+    });
+    
+    
+//排序
+    let arr1 = [43, 54, 4, -4, 84, 100, 58, 27, 140];
+    let arr2 = ['apple', 'dog', 'cat', 'car', 'zoo', 'orange', 'airplane'];
+    let arr3=[[10, 14], [16, 60], [7, 44], [26, 35], [22, 63]];
+    let arr4=[
+        {
+            id: 1,
+            name: 'candy',
+            value: 40
+        }, {
+            id: 2,
+            name: 'Simon',
+            value: 50
+        }, {
+            id: 3,
+            name: 'Tony',
+            value: 45
+        }, {
+            id: 4,
+            name: 'Annie',
+            value: 60
+        }
+    ];
+    console.log('\n\n排序 \n\n');
+    console.log(`原数组：`);
+    console.log(arr1);
+    console.log(`arr1从小到大排序:${arr1.sort((a,b)=>a-b)}`);
+    console.log(`arr1从大到小排序:${arr1.sort((a,b)=>b-a)}`);
+    console.log(`原数组：`);
+    console.log(arr2);
+    console.log(`arr2从a-z排序：${arr2.sort()}`);
+    console.log(`arr2从z-a排序：${arr2.sort((a,b)=>{
+        if(a<b){
+            return 1;
+        }
+        else if (a>b){
+            return -1;
+        }else return 0;
+    })}`);
+    console.log(`原数组：`);
+    console.log(arr3);
+    console.log(`arr3按照每个元素中第二个数从大到小的顺序进行排序：`);
+    console.log(arr3.sort((a,b)=>b[1]-a[1]));
+    console.log(`原数组：`);
+    console.log(arr4);
+    console.log(`arr4按元素对象的value值从小到大进行排序:`);
+    console.log(arr4.sort((a,b)=>a.value-b.value));
+    
+    //转换
+    //对象转换为数组
+    let scoreObject = {
+        "Tony": {
+            "Math": 95,
+            "English": 79,
+            "Music": 68
+        },
+        "Simon": {
+            "Math": 100,
+            "English": 95,
+            "Music": 98
+        },
+        "Annie": {
+            "Math": 54,
+            "English": 65,
+            "Music": 88
+        }
+    };
+    let scoreArr=[];
+    for (x in scoreObject){
+        let temp=[];
+        temp.push(x);
+        for (y in scoreObject[x]){
+            temp.push(scoreObject[x][y]);
+        } 
+        scoreArr.push(temp);
+    }
+    console.log('\n\n转换 \n\n');
+    console.log(`对象score：`);
+    console.log(scoreObject);
+    console.log(`转换成数组score：`);
+    console.log(scoreArr);
+
+    let menuArr = [
+        [1, "Area1", -1],
+        [2, "Area2", -1],
+        [3, "Area1-1", 1],
+        [4, "Area1-2", 1],
+        [5, "Area2-1", 2],
+        [6, "Area2-2", 2],
+        [7, "Area1-2-3", 4],
+        [8, "Area2-2-1", 6],
+    ];
+    let menuObject={};
+    menuArr.map(function (e,index) {
+        menuObject[index]=e[0];
+    });
+    console.log(menuObject);
 };
