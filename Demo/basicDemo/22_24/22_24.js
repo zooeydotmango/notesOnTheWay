@@ -622,8 +622,40 @@ window.onload = function () {
         [8, "Area2-2-1", 6],
     ];
     let menuObject={};
-    menuArr.map(function (e,index) {
-        menuObject[index]=e[0];
+    // menuObject
+
+    menuArr.map((value)=>{
+       let keyDad= value[2].toString();
+       let keySelf=value[0].toString();
+       //根据数组中的父级key查找父级
+       let objDad=findObjDad(menuObject,keyDad);
+       //如果没有找到父级就在根生成
+        if (!objDad){
+            menuObject[keySelf]={name:value[1]};
+        }else {
+            if (!objDad.subMenu){
+                objDad.subMenu={};
+            } 
+            objDad.subMenu[keySelf]={name:value[1]};
+        }
+
     });
+    function findObjDad(obj,key){
+        let dad=null;
+        for (x in obj){
+            if (x ===key){
+                //查找到有对应父级则生成
+                if (!obj[x]){
+                    obj[key]={};
+                } 
+                dad=obj[key];
+                break;
+            }else if(obj[x].subMenu){
+                findObjDad(obj[x].subMenu,key);
+                if (dad){break;} 
+            }
+        } 
+        return dad;
+    }
     console.log(menuObject);
 };
