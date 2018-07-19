@@ -633,6 +633,7 @@ window.onload = function () {
         if (!objDad){
             menuObject[keySelf]={name:value[1]};
         }else {
+            //有父级，父级下没有subMenu，生成subMenu
             if (!objDad.subMenu){
                 objDad.subMenu={};
             } 
@@ -651,7 +652,7 @@ window.onload = function () {
                 dad=obj[key];
                 break;
             }else if(obj[x].subMenu){
-                findObjDad(obj[x].subMenu,key);
+                dad= findObjDad(obj[x].subMenu,key);
                 if (dad){break;} 
             }
         } 
