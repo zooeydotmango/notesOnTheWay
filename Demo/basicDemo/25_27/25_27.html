@@ -41,15 +41,15 @@
         //编码2
         window.onload=function () {
             let myDate=new Date();
-            let m=addZero(myDate.getMonth());
+            let m=myDate.getMonth();
             let y=myDate.getFullYear();
-            let d=addZero(myDate.getDay());
+            let d=myDate.getDay();
             let week=getWeek(myDate.getDay());
             let h=addZero(myDate.getHours());
             let min=addZero(myDate.getMinutes());
             let sec=addZero(myDate.getSeconds());
-            
-            setInterval(total,500);
+            total();
+
             function getWeek(time) {
                 switch (time){
                     case 0:
@@ -77,9 +77,8 @@
                 return time;
             }
             function total(){
-                
                 document.getElementById('result').innerHTML=`${y}年${m}月${d}日 ${week} ${h}:${min}:${sec}`;
-                
+                setTimeout(total,500);
             }
             
         }
