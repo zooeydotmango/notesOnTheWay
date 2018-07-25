@@ -41,45 +41,56 @@
         //编码2
         window.onload=function () {
             
-            total();
-
-            function getWeek(time) {
-                switch (time){
-                    case 0:
-                        return '星期天';
-                    case 1:
-                        return '星期一';
-                    case 2:
-                        return '星期二';
-                    case 3:
-                        return '星期三';
-                    case 4:
-                        return '星期四';
-                    case 5:
-                        return '星期五';
-                    case 6:
-                        return '星期六';
-                    default:
-                        return;
-                } 
-            }
+            setDate();
+            
             function addZero(time) {
                 if (time<10){
                     time= '0'+time;
                 } 
                 return time;
             }
-            function total(){
+            function setWeek(week,lang) {
+                let weekZh=['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+                let weekEn=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+                if (lang==='Zh'){
+                    return weekZh[week];
+                } else if (lang==='En'){
+                    return weekEn[week];
+                } 
+            }
+            function dateFormat(date,lang) {
+                
+                let curDate={};
+                curDate.month=date.getMonth();
+                curDate.year=date.getFullYear();
+                curDate.day=date.getDay();
+                curDate.week=date.getDay();
+                curDate.hour=addZero(date.getHours());
+                curDate.min=addZero(date.getMinutes());
+                curDate.sec=addZero(date.getSeconds());
+                if (lang==='Zh'){
+                     return `${curDate.year}年${curDate.month}月${curDate.day}日 ${setWeek(curDate.week,'Zh')} 
+                    ${curDate.hour}:${curDate.min}:${curDate.sec}`;
+                } else if (lang==='En'){
+                    if (curDate.hour<12){
+                        curDate.MT='AM';
+                        return `${curDate.year}-${curDate.month}-${curDate.day} ${setWeek(curDate.week,'En')} 
+                    ${curDate.hour}:${curDate.min}:${curDate.sec} ${curDate.MT}`;
+                    } else if (curDate.hour>12){
+                        curDate.hour -=12;
+                        curDate.MT='PM';
+                         return `${curDate.year}-${curDate.month}-${curDate.day} ${setWeek(curDate.week,'En')} 
+                    ${curDate.hour}:${curDate.min}:${curDate.sec} ${curDate.MT}`;
+                    } 
+                    
+                } 
+            }
+            
+            function setDate(){
                 let myDate=new Date();
-                let m=myDate.getMonth();
-                let y=myDate.getFullYear();
-                let d=myDate.getDay();
-                let week=getWeek(myDate.getDay());
-                let h=addZero(myDate.getHours());
-                let min=addZero(myDate.getMinutes());
-                let sec=addZero(myDate.getSeconds());
-                document.getElementById('result').innerHTML=`${y}年${m}月${d}日 ${week} ${h}:${min}:${sec}`;
-                setTimeout(total,500);
+                document.getElementById('result').innerHTML=dateFormat(myDate,'Zh');
+                document.getElementById('result2').innerHTML=dateFormat(myDate,'En');
+                setTimeout(setDate,500);
             }
             
         }
@@ -101,7 +112,54 @@
         <li>封装一个函数，把最后的日期时间，按照要求的格式进行包装</li>
         <li>可能不止上面这些，尽可能地进行功能的解耦和拆解</li>
     </ul>
-    <p id="result">结果：</p>
+    <p id="result">结果1：</p>
+    <p id="result2">结果2：</p>
+</div>
+<div class="section2">
+    <select id="year-select">
+        <option value="2000">2000</option>
+        <option value="2001">2001</option>
+        <option value="2002">2002</option>
+        <option value="2032">2003</option>
+        option[value=200$]
+    </select>
+
+    <select id="month-select">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        ……
+        <option value="12">12</option>
+    </select>
+
+    <select id="day-select">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        ……
+        <option value="31">31</option>
+    </select>
+
+    <select id="hour-select">
+        <option value="0">00</option>
+        <option value="1">01</option>
+        ……
+        <option value="23">23</option>
+    </select>
+
+    <select id="minite-select">
+        <option value="0">0</option>
+        <option value="1">1</option>
+        ……
+        <option>59</option>
+    </select>
+
+    <select id="second-select">
+        <option value="0">0</option>
+        <option value="1">1</option>
+        ……
+        <option>59</option>
+    </select>
+
+    <p id="result-wrapper">现在距离 2001年1月1日星期X HH:MM:SS 还有 X 天 X 小时 X 分 X 秒</p>
 </div>
 </body>
 </html>
