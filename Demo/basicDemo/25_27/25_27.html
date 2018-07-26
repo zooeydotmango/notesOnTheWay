@@ -42,7 +42,6 @@
         window.onload=function () {
             
             setDate();
-            
             function addZero(time) {
                 if (time<10){
                     time= '0'+time;
@@ -90,12 +89,18 @@
                     
                 } 
             }
-            
+
+            //DOM
+            let section2=document.querySelector('.section2');
+            let resultWrap=document.getElementById('result-wrapper');
             //计算时间差，传入目标日期，返回diff对象
             function dateDiff(date) {
                 let curDate=new Date();
                 let diff={};
-                diff.Msec=curDate.getTime()-date.getTime();
+                //是否大于当前日期
+                if (curDate.getTime()>=date.getTime()) {
+                    diff.Msec=curDate.getTime()-date.getTime();
+                }else diff.Msec=date.getTime()-curDate.getTime();
                 //相差天数
                 diff.days=Math.floor(diff.Msec/(24*3600*1000));
                 let leave1=diff.Msec%(24*3600*1000);
@@ -110,6 +115,14 @@
                 return  diff;
             }
             
+            
+            
+            //
+            section2.addEventListener('click',function (e) {
+                e=e||window.event;
+                let target=e.target||e.srcElement;
+                
+            })
         }
         
     </script>
