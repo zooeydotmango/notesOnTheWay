@@ -114,8 +114,19 @@
                 diff.sec=Math.floor(leave3/1000);
                 return  diff;
             }
-            
-            
+
+
+            function generateOption(start, end) {
+                // document fragments 通常会起到优化性能的作用
+                // https://developer.mozilla.org/zh-CN/docs/Web/API/Document/createDocumentFragment
+                var fragment = document.createDocumentFragment();
+                for (var i = start; i <= end; i++) {
+                    var optionNode = document.createElement('option');
+                    optionNode.textContent = zeroize(i);  // 补零
+                    fragment.appendChild(optionNode);
+                }
+                return fragment;
+            }
             
             //
             section2.addEventListener('click',function (e) {
