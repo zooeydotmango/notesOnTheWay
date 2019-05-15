@@ -3,140 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>25_27</title>
-    <script>
-        //编码1
-        function Go() {
-            console.log("Go");
-        }
-
-        function GoSteps(n) {
-            console.log(`${n}的结果：`);
-        if (typeof n === "number"||n===true){
-            while (Math.floor(n)>0){
-                Go();
-                n--;
-            }
-        }else if (n===undefined){
-            Go();
-        } 
-        else {
-            console.log('请输入数字');
-        }
-        }
-
-        GoSteps(10); // Go 10次
-        GoSteps(1); // Go 1次
-        GoSteps(); // Go 1次，认为缺少参数时，默认参数为1
-        GoSteps(0);  // 0次
-        GoSteps(-1);  // 0次
-        GoSteps(1.4);  // Go 1次
-        GoSteps(1.6);  // Go 1次
-        GoSteps(-1);  // 0次
-        GoSteps(true);  // Go 1次
-        GoSteps(false);  // 0次
-        GoSteps("Test");  // 0次
-        GoSteps(NaN);  // 0次
-        GoSteps(null);  // 0次
-        
-        //编码2
-        window.onload=function () {
-            
-            setDate();
-            function addZero(time) {
-                if (time<10){
-                    time= '0'+time;
-                } 
-                return time;
-            }
-            function setWeek(week,lang) {
-                let weekZh=['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
-                let weekEn=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-                if (lang==='Zh'){
-                    return weekZh[week];
-                } else if (lang==='En'){
-                    return weekEn[week];
-                } 
-            }
-            function setDate(){
-                let myDate=new Date();
-                document.getElementById('result').innerHTML=dateFormat(myDate,'Zh');
-                document.getElementById('result2').innerHTML=dateFormat(myDate,'En');
-                setTimeout(setDate,500);
-            }
-            function dateFormat(date,lang) {
-                let curDate={};
-                curDate.month=date.getMonth()+1;
-                curDate.year=date.getFullYear();
-                curDate.day=date.getDate();
-                curDate.week=date.getDay();
-                curDate.hour=addZero(date.getHours());
-                curDate.min=addZero(date.getMinutes());
-                curDate.sec=addZero(date.getSeconds());
-                if (lang==='Zh'){
-                     return `${curDate.year}年${curDate.month}月${curDate.day}日 ${setWeek(curDate.week,'Zh')} 
-                    ${curDate.hour}:${curDate.min}:${curDate.sec}`;
-                } else if (lang==='En'){
-                    if (curDate.hour<12){
-                        curDate.MT='AM';
-                        return `${curDate.year}-${curDate.month}-${curDate.day} ${setWeek(curDate.week,'En')} 
-                    ${curDate.hour}:${curDate.min}:${curDate.sec} ${curDate.MT}`;
-                    } else if (curDate.hour>12){
-                        curDate.hour -=12;
-                        curDate.MT='PM';
-                         return `${curDate.year}-${curDate.month}-${curDate.day} ${setWeek(curDate.week,'En')} 
-                    ${curDate.hour}:${curDate.min}:${curDate.sec} ${curDate.MT}`;
-                    } 
-                    
-                } 
-            }
-
-            //DOM
-            let section2=document.querySelector('.section2');
-            let resultWrap=document.getElementById('result-wrapper');
-            //计算时间差，传入目标日期，返回diff对象
-            function dateDiff(date) {
-                let curDate=new Date();
-                let diff={};
-                //是否大于当前日期
-                if (curDate.getTime()>=date.getTime()) {
-                    diff.Msec=curDate.getTime()-date.getTime();
-                }else diff.Msec=date.getTime()-curDate.getTime();
-                //相差天数
-                diff.days=Math.floor(diff.Msec/(24*3600*1000));
-                let leave1=diff.Msec%(24*3600*1000);
-                //相差天数后的余数计算相差小时数
-                diff.hours=Math.floor(leave1/(3600*1000));
-                let leave2=leave1%(3600*1000);
-                //计算小时后的余数计算相差分钟数
-                diff.min=Math.floor(leave2/(60*1000));
-                let leave3=leave2%(60*1000);
-                //计算相差秒数
-                diff.sec=Math.floor(leave3/1000);
-                return  diff;
-            }
-
-
-            function generateOption(start, end) {
-                // document fragments 通常会起到优化性能的作用
-                // https://developer.mozilla.org/zh-CN/docs/Web/API/Document/createDocumentFragment
-                var fragment = document.createDocumentFragment();
-                for (var i = start; i <= end; i++) {
-                    var optionNode = document.createElement('option');
-                    optionNode.textContent = zeroize(i);  // 补零
-                    fragment.appendChild(optionNode);
-                }
-                return fragment;
-            }
-            
-            //
-            section2.addEventListener('click',function (e) {
-                e=e||window.event;
-                let target=e.target||e.srcElement;
-                
-            })
-        }
-        
-    </script>
 </head>
 <body>
 <div class="section1">
@@ -151,16 +17,7 @@
         <li>封装一个函数，来根据某个日期返回这一天是星期几</li>
         <li>封装一个函数，把月、日、小时等出现个位数的情况前面补充0，补充为两位，比如1变为01</li>
         <li>封装一个函数，把最后的日期时间，按照要求的格式进行包装</li>
-        <li>可能不止上面这些，尽可能地进行功能的解耦和拆解</li>
-        <li>封装一个函数，来根据某个日期返回这一天是星期几</li>
-        <li>封装一个函数，把月、日、小时等出现个位数的情况前面补充0，补充为两位，比如1变为01</li>
-        <li>封装一个函数，把最后的日期时间，按照要求的格式进行包装</li>
-        <li>可能不止上面这些，尽可能地进行功能的解耦和拆解</li>
-        <li>封装一个函数，来根据某个日期返回这一天是星期几</li>
-        <li>封装一个函数，把月、日、小时等出现个位数的情况前面补充0，补充为两位，比如1变为01</li>
-        <li>封装一个函数，把最后的日期时间，按照要求的格式进行包装</li>
-        <li>可能不止上面这些，尽可能地进行功能的解耦和拆解</li>
-        
+        <li>可能不止上面这些，尽可能地进行功能的解耦和拆解</li>        
     </ul>
     <p id="result">结果1：</p>
     <p id="result2">结果2：</p>
@@ -403,5 +260,84 @@
 
     <p id="result-wrapper">现在距离 2001年1月1日星期X HH:MM:SS 还有 X 天 X 小时 X 分 X 秒</p>
 </div>
+<script>
+    //GoSetps()函数
+    function Go() {
+        console.log("Go");
+    }
+    function GoSteps(n) {
+        console.log(n);
+        if (!isNaN(n)){
+            while (n>=1){
+                Go();
+                n--;
+            } 
+        }
+        else if (n === undefined) {
+            Go();
+        }
+    };
+    //测试
+    GoSteps(10); // Go 10次
+    GoSteps(1); // Go 1次
+    GoSteps(); // Go 1次，认为缺少参数时，默认参数为1
+    GoSteps(0);  // 0次
+    GoSteps(-1);  // 0次
+    GoSteps(1.4);  // Go 1次
+    GoSteps(1.6);  // Go 1次
+    GoSteps(-1);  // 0次
+    GoSteps(true);  // Go 1次
+    GoSteps(false);  // 0次
+    GoSteps("Test");  // 0次
+    GoSteps(NaN);  // 0次
+    GoSteps(null);  // 0次
+    
+    //日期
+    var result1=document.getElementById("result");
+    var result2=document.getElementById("result2");
+    freshTime();
+    
+    //设置日期格式
+    function setFormat(n) {
+        if (n<10){
+            n="0"+n;
+        } 
+        return n;
+    }
+    //根据日期返回星期几
+    function setWeek(n,lang) {
+        if (lang=="ZH"){
+            var week=["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+        } 
+        else if(lang=="EN"){
+            var week=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+        } 
+        return week[n];
+    }
+    //根据时间返回AM或PM
+    function APM(n) {
+        if (n<12){
+            return "AM";
+        } else return "PM";
+    }
+    //组装返回信息
+    function returnTime(lang) {
+        var today= new Date();
+        if (lang=="ZH"){
+            return today.getFullYear()+"年"+setFormat(today.getMonth()+1)+"月"+setFormat(today.getDate())+"日"+setWeek(today.getDay(),"ZH")
+                +"&nbsp"+setFormat(today.getHours())+":"+setFormat(today.getMinutes())+":"+setFormat(today.getSeconds());
+        } 
+        else if(lang=="EN"){
+            return today.getFullYear()+"-"+setFormat(today.getMonth()+1)+"-"+setFormat(today.getDate())+setWeek(today.getDay(),"EN")
+            +"&nbsp"+setFormat(today.getHours())+":"+setFormat(today.getMinutes())+":"+setFormat(today.getSeconds())+APM(today.getHours());
+        }
+    }
+    //刷新时间
+    function freshTime() {
+        result1.innerHTML= returnTime("ZH");
+        result2.innerHTML= returnTime("EN");
+        setTimeout("freshTime()",1000);
+    }
+</script>
 </body>
 </html>
