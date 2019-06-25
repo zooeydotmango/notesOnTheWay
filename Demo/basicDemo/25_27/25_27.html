@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>25_27</title>
+    <title>25_27倒数滴答滴答</title>
 </head>
 <body>
 <div class="section1">
@@ -19,245 +19,16 @@
         <li>封装一个函数，把最后的日期时间，按照要求的格式进行包装</li>
         <li>可能不止上面这些，尽可能地进行功能的解耦和拆解</li>        
     </ul>
-    <p id="result">结果1：</p>
-    <p id="result2">结果2：</p>
+    <p id="result"></p>
+    <p id="result2"></p>
 </div>
 <div class="section2">
-    <select id="year-select">
-        <option value="2000">2000</option>
-        <option value="2001">2001</option>
-        <option value="2002">2002</option>
-        <option value="2003">2003</option>
-        <option value="2004">2004</option>
-        <option value="2005">2005</option>
-        <option value="2006">2006</option>
-        <option value="2007">2007</option>
-        <option value="2008">2008</option>
-        <option value="2009">2009</option>
-        <option value="2010">2010</option>
-        <option value="2011">2011</option>
-        <option value="2012">2012</option>
-        <option value="2013">2013</option>
-        <option value="2014">2014</option>
-        <option value="2015">2015</option>
-        <option value="2016">2016</option>
-        <option value="2017">2017</option>
-        <option value="2018">2018</option>
-        <option value="2019">2019</option>
-        <option value="2020">2020</option>
-        <option value="2021">2021</option>
-        <option value="2022">2022</option>
-        <option value="2023">2023</option>
-        <option value="2024">2024</option>
-        <option value="2025">2025</option>
-        <option value="2026">2026</option>
-        <option value="2027">2027</option>
-        <option value="2028">2028</option>
-        <option value="2029">2029</option>
-        <option value="2030">2030</option>
-        <option value="2031">2031</option>
-        <option value="2032">2032</option>
-    </select>
-
-    <select id="month-select">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-        <option value="11">11</option>
-        <option value="12">12</option>
-    </select>
-
-    <select id="day-select">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-        <option value="11">11</option>
-        <option value="12">12</option>
-        <option value="13">13</option>
-        <option value="14">14</option>
-        <option value="15">15</option>
-        <option value="16">16</option>
-        <option value="17">17</option>
-        <option value="18">18</option>
-        <option value="19">19</option>
-        <option value="20">20</option>
-        <option value="21">21</option>
-        <option value="22">22</option>
-        <option value="23">23</option>
-        <option value="24">24</option>
-        <option value="25">25</option>
-        <option value="26">26</option>
-        <option value="27">27</option>
-        <option value="28">28</option>
-        <option value="29">29</option>
-        <option value="30">30</option>
-        <option value="31">31</option>
-    </select>
-
-    <select id="hour-select">
-        <option value="1">01</option>
-        <option value="2">02</option>
-        <option value="3">03</option>
-        <option value="4">04</option>
-        <option value="5">05</option>
-        <option value="6">06</option>
-        <option value="7">07</option>
-        <option value="8">08</option>
-        <option value="9">09</option>
-        <option value="10">10</option>
-        <option value="11">11</option>
-        <option value="12">12</option>
-        <option value="13">13</option>
-        <option value="14">14</option>
-        <option value="15">15</option>
-        <option value="16">16</option>
-        <option value="17">17</option>
-        <option value="18">18</option>
-        <option value="19">19</option>
-        <option value="20">20</option>
-        <option value="21">21</option>
-        <option value="22">22</option>
-        <option value="23">23</option>
-    </select>
-
-    <select id="minite-select">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-        <option value="11">11</option>
-        <option value="12">12</option>
-        <option value="13">13</option>
-        <option value="14">14</option>
-        <option value="15">15</option>
-        <option value="16">16</option>
-        <option value="17">17</option>
-        <option value="18">18</option>
-        <option value="19">19</option>
-        <option value="20">20</option>
-        <option value="21">21</option>
-        <option value="22">22</option>
-        <option value="23">23</option>
-        <option value="24">24</option>
-        <option value="25">25</option>
-        <option value="26">26</option>
-        <option value="27">27</option>
-        <option value="28">28</option>
-        <option value="29">29</option>
-        <option value="30">30</option>
-        <option value="31">31</option>
-        <option value="32">32</option>
-        <option value="33">33</option>
-        <option value="34">34</option>
-        <option value="35">35</option>
-        <option value="36">36</option>
-        <option value="37">37</option>
-        <option value="38">38</option>
-        <option value="39">39</option>
-        <option value="40">40</option>
-        <option value="41">41</option>
-        <option value="42">42</option>
-        <option value="43">43</option>
-        <option value="44">44</option>
-        <option value="45">45</option>
-        <option value="46">46</option>
-        <option value="47">47</option>
-        <option value="48">48</option>
-        <option value="49">49</option>
-        <option value="50">50</option>
-        <option value="51">51</option>
-        <option value="52">52</option>
-        <option value="53">53</option>
-        <option value="54">54</option>
-        <option value="55">55</option>
-        <option value="56">56</option>
-        <option value="57">57</option>
-        <option value="58">58</option>
-        <option value="59">59</option>
-    </select>
-
-    <select id="second-select">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-        <option value="11">11</option>
-        <option value="12">12</option>
-        <option value="13">13</option>
-        <option value="14">14</option>
-        <option value="15">15</option>
-        <option value="16">16</option>
-        <option value="17">17</option>
-        <option value="18">18</option>
-        <option value="19">19</option>
-        <option value="20">20</option>
-        <option value="21">21</option>
-        <option value="22">22</option>
-        <option value="23">23</option>
-        <option value="24">24</option>
-        <option value="25">25</option>
-        <option value="26">26</option>
-        <option value="27">27</option>
-        <option value="28">28</option>
-        <option value="29">29</option>
-        <option value="30">30</option>
-        <option value="31">31</option>
-        <option value="32">32</option>
-        <option value="33">33</option>
-        <option value="34">34</option>
-        <option value="35">35</option>
-        <option value="36">36</option>
-        <option value="37">37</option>
-        <option value="38">38</option>
-        <option value="39">39</option>
-        <option value="40">40</option>
-        <option value="41">41</option>
-        <option value="42">42</option>
-        <option value="43">43</option>
-        <option value="44">44</option>
-        <option value="45">45</option>
-        <option value="46">46</option>
-        <option value="47">47</option>
-        <option value="48">48</option>
-        <option value="49">49</option>
-        <option value="50">50</option>
-        <option value="51">51</option>
-        <option value="52">52</option>
-        <option value="53">53</option>
-        <option value="54">54</option>
-        <option value="55">55</option>
-        <option value="56">56</option>
-        <option value="57">57</option>
-        <option value="58">58</option>
-        <option value="59">59</option>
-    </select>
-
+    <select id="year-select"></select>
+    <select id="month-select"></select>
+    <select id="day-select"></select>
+    <select id="hour-select"></select>
+    <select id="minute-select"></select>
+    <select id="second-select"></select>
     <p id="result-wrapper">现在距离 2001年1月1日星期X HH:MM:SS 还有 X 天 X 小时 X 分 X 秒</p>
 </div>
 <script>
@@ -292,13 +63,23 @@
     GoSteps(NaN);  // 0次
     GoSteps(null);  // 0次
     
-    //日期
+    //日期1
     var result1=document.getElementById("result");
     var result2=document.getElementById("result2");
-    freshTime();
+    var result=document.getElementById("result-wrapper");
     
-    //设置日期格式
-    function setFormat(n) {
+    createOptions(2000,2023,getByCss("#year-select"));
+    createOptions(1,12,getByCss("#month-select"));
+    createOptions(1,31,getByCss("#day-select"));
+    createOptions(0,24,getByCss("#hour-select"));
+    createOptions(0,60,getByCss("#minute-select"));
+    createOptions(0,60,getByCss("#second-select"));
+    
+    freshTime();
+    setInterval(freshTime,1000);
+    
+    //不足两位补足两位
+    function appendZero(n) {
         if (n<10){
             n="0"+n;
         } 
@@ -322,21 +103,91 @@
     }
     //组装返回信息
     function returnTime(lang) {
-        var today= new Date();
+        let today= new Date();
         if (lang=="ZH"){
-            return today.getFullYear()+"年"+setFormat(today.getMonth()+1)+"月"+setFormat(today.getDate())+"日"+setWeek(today.getDay(),"ZH")
-                +"&nbsp"+setFormat(today.getHours())+":"+setFormat(today.getMinutes())+":"+setFormat(today.getSeconds());
+            return today.getFullYear()+"年"+appendZero(today.getMonth()+1)+"月"+appendZero(today.getDate())+"日"+setWeek(today.getDay(),"ZH")
+                +"&nbsp"+appendZero(today.getHours())+":"+appendZero(today.getMinutes())+":"+appendZero(today.getSeconds());
         } 
         else if(lang=="EN"){
-            return today.getFullYear()+"-"+setFormat(today.getMonth()+1)+"-"+setFormat(today.getDate())+setWeek(today.getDay(),"EN")
-            +"&nbsp"+setFormat(today.getHours())+":"+setFormat(today.getMinutes())+":"+setFormat(today.getSeconds())+APM(today.getHours());
+            return today.getFullYear()+"-"+appendZero(today.getMonth()+1)+"-"+appendZero(today.getDate())+setWeek(today.getDay(),"EN")
+            +"&nbsp"+appendZero(today.getHours())+":"+appendZero(today.getMinutes())+":"+appendZero(today.getSeconds())+APM(today.getHours());
+        }else {
+            let result = countTime();
+            // console.log(getSelectTime());
+            return "现在距离"+getSelectTime().getFullYear()+"年"+appendZero(getSelectTime().getMonth()+1)+"月"+appendZero(getSelectTime().getDate())+"日"+setWeek(getSelectTime().getDay(),"ZH")
+                +"&nbsp"+appendZero(getSelectTime().getHours())+":"+appendZero(getSelectTime().getMinutes())+":"+appendZero(getSelectTime().getSeconds())
+                +result[1]+result[2][0]+"天"+result[2][1]+"小时"+result[2][2]+"分"+result[2][3]+"秒";
         }
+        
     }
     //刷新时间
     function freshTime() {
-        result1.innerHTML= returnTime("ZH");
-        result2.innerHTML= returnTime("EN");
-        setTimeout("freshTime()",1000);
+        result1.innerHTML= "中文显示："+ returnTime("ZH");
+        result2.innerHTML= "英文显示："+returnTime("EN");
+        result.innerHTML= returnTime();
+    }
+    
+    //刷新选项
+    function createOptions(start,end,select) {
+        var frag=document.createDocumentFragment();
+        for (i=start;i<=end;i++){
+            var option=document.createElement("option");
+            option.innerHTML=appendZero(i);
+            frag.appendChild(option);
+        } 
+        select.innerHTML="";
+        select.appendChild(frag);
+    }
+    
+    function getByCss(css){
+        return document.querySelector(css);
+    }
+    
+
+    
+    //判定闰年，如果选定闰年，需要刷新天选择器
+    function ifLeapYear() {
+        console.log('leapyear');
+        let select_year=getByCss("#year-select").value;
+        if (select_year %4===0 &&(select_year %100 !== 0||select_year %400 ===0)){
+            let daylist=[31,28,31,30,31,30,31,31,30,31,30,31];
+            createOptions(1,daylist[getByCss("#month-select").value-1],getByCss("#day-select"));
+        } else {
+            let daylist=[31,29,31,30,31,30,31,31,30,31,30,31];
+            createOptions(1,daylist[getByCss("#month-select").value-1],getByCss("#day-select"));
+        }
+    }
+    //监听年、月选择器，如果是闰年则修改天选择器
+    getByCss("#year-select").addEventListener("change",ifLeapYear);
+    getByCss("#month-select").addEventListener("change",ifLeapYear);
+    
+    //获取选定的时间
+    function getSelectTime() {
+        let select_time=new Date(getByCss('#year-select').value,getByCss('#month-select').value-1,getByCss('#day-select').value,
+                                getByCss('#hour-select').value,getByCss('#minute-select').value,getByCss('#second-select').value);
+        return select_time;
+    }
+    
+    //计算选定时间与当前时间差
+    function countTime() {
+        let now_time= new Date();
+        let time_diff= now_time.getTime()-getSelectTime().getTime();
+        if (time_diff >0){
+            return [1,"已经过去",seconds_convert(time_diff)];
+        } else if (time_diff<0){
+            return [-1,"还有",seconds_convert(-time_diff)];
+        } else 
+            return [0,"相同"];
+        
+    }
+    
+    //毫秒数计算成需要格式
+    function seconds_convert(ms) {
+        let days= ms / (60*60*24*1000);
+        let hours= (ms % (60*60*24*1000))/(60*60*1000);
+        let minutes= (ms %(60*60*1000))/(60*1000);
+        let seconds= (ms %(60*1000))/1000;
+        return [Math.floor(days),Math.floor(hours),Math.floor(minutes),Math.floor(seconds)];
     }
 </script>
 </body>

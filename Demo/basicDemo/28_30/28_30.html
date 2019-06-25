@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>28_30给爱的人发个邮件吧</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        .wrapper{
+            width: 300px;
+            height: 30px;
+            margin: 30px auto;
+            
+        }
+        #email-input{
+            width: 300px;
+            height: 30px;
+        }
+        .email-sug{
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .email-sug>li{
+            width: 100%;
+            list-style: none;
+            font-size: 10px;
+            border: 1px solid gainsboro;
+            border-top: none;
+            padding: 5px 2px;
+        }
+        .email-sug>li:hover{
+            background-color: pink;
+        }
+        .nowSelect{
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <input id="email-input" type="text">
+    <ul id="email-sug-wrapper" class="email-sug"></ul>
+</div>
+<script>
+    var postfixList = ['163.com', 'gmail.com', '126.com', 'qq.com', '263.net'];
+    var e_input=document.getElementById("email-input");
+    var e_sug_wrapper=document.getElementById("email-sug-wrapper");
+    var nowSelectTipIndex=0;
+    var fin_arr =[];
+
+    e_input.focus();
+    e_input.oninput=freshReminder;
+    //将选定li内容显示在输入框
+    e_sug_wrapper.onclick=function (ev) {
+        var ev=ev||window.event;
+        var target=target||ev.srcElement;
+        //监听提示框，如果选择其中之一则将内容显示到输入框
+        if (target.nodeName.toLocaleLowerCase() ==="li"){
+            e_input.value =unEnCode(target.innerHTML);
+            hideTip();
+        }
+        e_input.focus();
+    };
+    document.querySelector('.wrapper').onkeydown=function (event) {
+        if ([27,38,40,13].indexOf(event.keyCode)===-1){
+            resetSelectIndex();
+        } 
+        if (event.keyCode === 27){
+            e_input.select();
+        } 
+        //上
+        if (event.keyCode === 38){
+            //index为0时变为最大值
+            if (nowSelectTipIndex==0){
+                nowSelectTipIndex=fin_arr.length-1;
+            } else nowSelectTipIndex--;
+        }
+        //下
+        if (event.keyCode === 40){
+            //index为最大值时变为0
+            if (nowSelectTipIndex ==fin_arr.length-1){
+                nowSelectTipIndex=0;
+            } else nowSelectTipIndex++;
+        } 
+        if (event.keyCode === 13){
+            // console.log(e_sug_wrapper.childNodes[nowSelectTipIndex]);
+            e_input.value =unEnCode(e_sug_wrapper.childNodes[nowSelectTipIndex].innerHTML);
+            hideTip();
+            return;
+        } 
+        freshReminder();
+    };
+    
+    //根据输入内容刷新列表
+    function freshReminder() {
+        // var input_str= e_input.value.replace(/(^\s)|(\s*$)/,"");\
+        var input_str= e_input.value.trim();
+        let left_str = input_str;
+        fin_arr=postfixList;
+        showTip();
+        if (input_str.includes("@")){
+            // let get_str = input_str.match(/(\w*)@(\w*)/);
+            left_str=input_str.split("@")[0];
+            var right_str=input_str.split("@")[1];
+        }
+        left_str = enCode(left_str);
+        if (right_str){
+            fin_arr= postfixList.filter(function (n) {
+                if (n.indexOf(right_str)>=0){
+                    return true;
+                }
+            });
+            appendList(createReminder(left_str,fin_arr));
+        }else 
+        if (input_str){
+            appendList(createReminder(left_str,fin_arr));
+        }else e_sug_wrapper.innerHTML="";
+    }
+    
+    function createReminder(str,arr) {
+        let frag=document.createDocumentFragment();
+        for (var i=0;i<arr.length;i++){
+            let li=document.createElement('li');
+            li.innerHTML=str+"@"+arr[i];
+            if (i ===nowSelectTipIndex){
+                li.classList.add("nowSelect");
+            } 
+            frag.appendChild(li);
+        }        
+        return frag;
+    }
+    
+    //将生成的提示框添加到列表里
+    function appendList(frag) {
+        e_sug_wrapper.innerHTML="";
+        e_sug_wrapper.appendChild(frag);
+    }
+    //隐藏提示框
+    function hideTip() {
+            e_sug_wrapper.style.display="none";
+    }
+    //显示提示框
+    function showTip() {
+        e_sug_wrapper.style.display="block";
+    }
+    //字符转义
+    function enCode(html) {
+        let temp=document.createElement("div");
+        (temp.textContent != undefined ) ? (temp.textContent = html) : (temp.innerText = html);
+        var output=temp.innerHTML;
+        temp= null;
+        return output;
+    }
+    function unEnCode(text) {
+        let temp=document.createElement("div");
+        temp.innerHTML=text;
+        var output= temp.textContent||temp.innerText;
+        temp= null;
+        return output;
+    }
+    //重置li选中状态为默认
+    function resetSelectIndex() {
+        nowSelectTipIndex=0;
+        return nowSelectTipIndex;
+    }
+    
+</script>
+</body>
+</html>
