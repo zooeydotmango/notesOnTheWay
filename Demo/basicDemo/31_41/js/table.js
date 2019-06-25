@@ -66,8 +66,8 @@ function appendTable(obj) {
 
 //根据selected筛选数据
 function filterSourceData() {
-    var regionInputs=document.querySelectorAll('#region-radio-wrapper input');
-    var productInputs=document.querySelectorAll('#product-radio-wrapper input');
+    var regionInputs=listToArray(document.querySelectorAll('#region-radio-wrapper>input'));
+    var productInputs=listToArray(document.querySelectorAll('#product-radio-wrapper>input'));
     var regionSelectArr=[];
     for (let i in regionInputs){
         if (regionInputs[i].checked){
@@ -85,7 +85,6 @@ function filterSourceData() {
             return e;
         }
     });
-    console.log(result);
     return result;
 }
 
@@ -110,4 +109,13 @@ function mergeCell(obj, startRow, endRow, col) {
             break;
         }
     }
+}
+
+//nodelist转数组
+function listToArray(collection) {
+    var ary=[];
+    for (var i=0;len = collection.length , i<len ; i++){
+        ary.push(collection[i]);
+    } 
+    return ary;
 }

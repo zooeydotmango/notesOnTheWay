@@ -1,22 +1,23 @@
-function createCheckbox(str,arr) {
-    var div=document.querySelector("#"+str);
+function createCheckbox(strId,arr) {
+    var div=document.querySelector("#" + strId);
     for (let i in arr){
-        div.appendChild(makeCheckbox(str,arr[i]));
+        div.appendChild(makeCheckbox(arr[i]));
         div.appendChild(makeLabel(arr[i]));
     }
-    
+    var span = document.createElement('span');
+    span.appendChild(makeCheckbox({value:'all', id: strId +'all'}));
+    span.appendChild(makeLabel({text:'全选'}));
+    div.appendChild(span);
+    return div;
 }
-function makeCheckbox(str,obj) {
+function makeCheckbox(obj) {
     var checkbox=document.createElement('input');
     checkbox.type='checkbox';
     checkbox.value=obj.value;
-    if (checkbox.value === 'all'){
-        checkbox.id = str +'all';
-        var span=document.createElement('span');
-        span.appendChild(checkbox);
-        return span;
-    } 
     checkbox.defaultChecked=true;
+    if (obj.id){
+        checkbox.id =obj.id ;
+    } 
     return checkbox
 }
 function makeLabel(obj) {
