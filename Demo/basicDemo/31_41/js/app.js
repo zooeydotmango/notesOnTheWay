@@ -21,6 +21,7 @@
         var table=document.createElement('table');
         table.border='1px solid';
         table_wrapper.appendChild(appendTable(table));
+        document.querySelector('#chart').appendChild(drawBar(filterSourceData()));
     }
 
     //如果当前选中的地区或产品是最后一个，则不允许改为未选中状态
