@@ -10,24 +10,22 @@ function drawBar(data) {
             return e.sale;
         }
     }).filter(e=>e);
-    // svg.setAttribute('width',axisWidth);
-    // svg.setAttribute('height',axisHeight);
-    let columColor='black';
     //根据数据最大值计算柱的高度
-    let max=Math.max(...barData[0]);
-    let radio=max/axisHeight;
+    let radio=axisHeight/Math.max(...barData[0]);
     let barHeight=barData[0].map(n=>n*radio);
     
     //插入xy轴
-    let y=makeTag('line',{x1:0,y1:0,x2:0,y2:axisHeight,style:"stroke: black;stroke-width: 1px"});
-    let x=makeTag('line',{x1:0,y1:axisHeight,x2:axisWidth,y2:axisHeight,style:"stroke: black;stroke-width: 1px"});
+    let y=makeTag('line',{x1:0,y1:0,x2:0,y2:axisHeight,style:"stroke: black;stroke-width: 2px"});
+    let x=makeTag('line',{x1:0,y1:axisHeight,x2:axisWidth,y2:axisHeight,style:"stroke: black;stroke-width: 2px"});
     svg.appendChild(x);
     svg.appendChild(y);
     //插入柱，需要柱间隔，柱宽高
-    let f=10;
+    const barGap=0.3;
+    let gap=axisWidth/barHeight.length*barGap;
+    let barWidth=axisWidth/barHeight.length-gap;
     for (let i in barHeight){
-        svg.appendChild(makeTag('rect',{x:f,y:axisHeight-barHeight[i],width:20,height:barHeight[i],style:'fill:black;'}));
-        f=f+30;
+        svg.appendChild(makeTag('rect',{x:gap,y:axisHeight-barHeight[i],width:barWidth,height:barHeight[i],style:'fill:black;'}));
+        gap=gap+(axisWidth/barHeight.length);
     } 
     return svg;
 }
@@ -37,7 +35,4 @@ function makeTag(tag,attrs) {
         element.setAttribute(k,attrs[k]);
     } 
     return element;
-}
-function makeColumn(arr) {
-    let gap;
 }
