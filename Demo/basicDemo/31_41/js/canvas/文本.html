@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文本</title>
+</head>
+<body>
+<canvas id="rect"></canvas>
+<script>
+    let rect=document.getElementById('rect');
+    if (rect.getContext('2d')){
+        var ctx=rect.getContext('2d');
+    }
+    ctx.font='48px serif';
+    ctx.fillText('Say hey!',10,50);
+    ctx.strokeText('Say What!',10,100);
+    
+    //文本样式 
+    ctx.font='';
+    ctx.textAlign='start';  //end/left/right/center
+    ctx.textBaseline='alphabetic';  //hanging/middle/top/ideographic/bottom
+    ctx.direction='inherit'; //ltr/rtl
+    
+    //预测量文本宽度
+    let text=ctx.measureText("foo");
+    text.width; //16
+    console.log(text);//?
+</script>
+</body>
+</html>

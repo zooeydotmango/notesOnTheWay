@@ -5,8 +5,9 @@
     <title>线条canvas</title>
 </head>
 <body>
-<canvas id="rect"></canvas>
+<canvas id="rect" width="500" height="500"></canvas>
 <script>
+    //line
     let rect=document.getElementById('rect');
     if (rect.getContext('2d')){
         var ctx=rect.getContext('2d');
@@ -25,7 +26,139 @@
             case 2:
                 ctx.stroke();
         }
+    }
+    
+    //lineWidth
+    for (let i=0;i<10;i++){
+        ctx.beginPath();
+        ctx.lineWidth=i+1;
+        ctx.moveTo(120+15*i,10);
+        ctx.lineTo(120+15*i,60);
+        ctx.stroke();
     } 
+    
+    //lineCap:butt/round/square线段端点
+    let lineCap = ['butt','round','square'];
+    // 创建路径
+    ctx.strokeStyle = '#09f';
+    ctx.beginPath();
+    ctx.moveTo(160+30,70);
+    ctx.lineTo(290+30,70);
+    ctx.moveTo(160+30,200);
+    ctx.lineTo(290+30,200);
+    ctx.stroke();
+    // 画线条
+    ctx.strokeStyle = 'black';
+    for (let i=0;i<lineCap.length;i++){
+        ctx.lineWidth = 15;
+        ctx.lineCap = lineCap[i];
+        ctx.beginPath();
+        ctx.moveTo(175+30+i*50,70);
+        ctx.lineTo(175+30+i*50,200);
+        ctx.stroke();
+    }
+    
+    //lineJoin:round/bevel/miter线段连接处
+    let lineJoin = ['round', 'bevel', 'miter'];
+    ctx.lineWidth = 10;
+    for (let i = 0; i < lineJoin.length; i++) {
+        ctx.lineJoin = lineJoin[i];
+        ctx.beginPath();
+        ctx.moveTo(-5+5, 65+5 + i * 40);
+        ctx.lineTo(35+5, 105+5 + i * 40);
+        ctx.lineTo(75+5, 65+5 + i * 40);
+        ctx.lineTo(115+5, 105+5 + i * 40);
+        ctx.lineTo(155+5, 65+5 + i * 40);
+        ctx.stroke();
+    }
+    
+    //miterLimit设定外延交点和连接点的最大距离
+    
+    //setLineDash([...]);和lineDashOffset属性设定虚线样式
+    ctx.lineWidth=1;
+    ctx.setLineDash([19,2]);
+    ctx.lineDashOffset=1;
+    ctx.strokeRect(0,210,100,100);
+   
+    //Gradients 渐变 strokeStyle和fillStyle都接受canvasGradient对象
+    function lineGradient() {
+        //lineGradient
+        let lineGradient=ctx.createLinearGradient(150,210,150,360);
+        lineGradient.addColorStop(0,'#00ABEB');
+        lineGradient.addColorStop(0.2,'#fff');
+        lineGradient.addColorStop(0.5,'#26C000');
+        lineGradient.addColorStop(1,'#fff');
+        
+        let lineGradient2=ctx.createLinearGradient(150,210,150,360);
+        lineGradient2.addColorStop(0.5,'#000');
+        lineGradient2.addColorStop(1,'rgba(0,0,0,0)');
+        //赋值给style
+        ctx.fillStyle=lineGradient;
+        ctx.strokeStyle=lineGradient2;
+        
+        //图形
+        ctx.fillRect(150,210,130,130);
+        ctx.strokeRect(170,230,100,100);
+    }
+    lineGradient();
+    
+    function radialGradient() {
+        let radgrad1=ctx.createRadialGradient(45+350,45,10,52+350,50,30);
+        radgrad1.addColorStop(0,'#A7D30C');
+        radgrad1.addColorStop(0.9,'#019F62');
+        radgrad1.addColorStop(1,'rgba(1,159,98,0)');
+
+        var radgrad2 = ctx.createRadialGradient(105+350,105,20,112+350,120,50);
+        radgrad2.addColorStop(0, '#FF5F98');
+        radgrad2.addColorStop(0.75, '#FF0188');
+        radgrad2.addColorStop(1, 'rgba(255,1,136,0)');
+
+        var radgrad3 = ctx.createRadialGradient(95+350,15,15,102+350,20,40);
+        radgrad3.addColorStop(0, '#00C9FF');
+        radgrad3.addColorStop(0.8, '#00B5E2');
+        radgrad3.addColorStop(1, 'rgba(0,201,255,0)');
+
+        var radgrad4 = ctx.createRadialGradient(0+350,150,50,0+350,140,90);
+        radgrad4.addColorStop(0, '#F4F201');
+        radgrad4.addColorStop(0.8, '#E4C700');
+        radgrad4.addColorStop(1, 'rgba(228,199,0,0)');
+        
+        //图形
+        ctx.fillStyle = radgrad4;
+        ctx.fillRect(350,0,150,150);
+        ctx.fillStyle = radgrad3;
+        ctx.fillRect(350,0,150,150);
+        ctx.fillStyle = radgrad2;
+        ctx.fillRect(350,0,150,150);
+        ctx.fillStyle=radgrad1;
+        ctx.fillRect(350,0,150,150);
+    }
+    radialGradient();
+    
+    //createPattern(image, type) 图案样式，创建后赋给fillStyle或strokeStyle
+    function pattern() {
+        let img= new Image(30,30);
+        img.src='https://mdn.mozillademos.org/files/222/Canvas_createpattern.png';
+        img.onload=function () {
+            let ptrn = ctx.createPattern(img,'repeat');
+            ctx.fillStyle=ptrn;
+            ctx.fillRect(0,350,200,200);
+        }
+    }
+    pattern();
+    
+    //shadows 阴影
+    function shadow() {
+        ctx.shadowOffsetX=2; //x轴的偏移
+        ctx.shadowOffsetY=2; //y轴的偏移
+        ctx.shadowBlur=2;    //模糊度
+        ctx.shadowColor='rgba(0,0,0,0.5)'; //默认全透明黑色
+        
+        ctx.font='20px Times New Roman';
+        ctx.fillStyle='black';
+        ctx.fillText('Shadow Sample',350,200);
+    }
+    shadow();
 </script>
 </body>
 </html>
