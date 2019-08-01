@@ -13,6 +13,7 @@
         for (let i=0;i<3;i++){
             for (let j=0;j<3;j++){
                 ctx.save();
+                ctx.fillStyle='rgb('+Math.floor(256-85*i)+','+Math.floor(256-85*j)+',0)';
                 ctx.translate(10+50*i,10+50*j);
                 ctx.fillRect(0,0,25,25);
                 ctx.restore();
