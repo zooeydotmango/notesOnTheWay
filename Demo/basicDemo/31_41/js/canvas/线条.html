@@ -137,13 +137,17 @@
     
     //createPattern(image, type) 图案样式，创建后赋给fillStyle或strokeStyle
     function pattern() {
-        let img= new Image(30,30);
+        let img= new Image();
         img.src='https://mdn.mozillademos.org/files/222/Canvas_createpattern.png';
         img.onload=function () {
             let ptrn = ctx.createPattern(img,'repeat');
             ctx.fillStyle=ptrn;
             ctx.fillRect(0,350,200,200);
-        }
+            //drawImage(image, x, y, width, height)可以控制图片大小
+            ctx.drawImage(img,210,350,50,50);
+            //drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)可以切割图片
+        };
+        
     }
     pattern();
     
