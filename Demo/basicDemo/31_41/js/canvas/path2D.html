@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>path2D</title>
+</head>
+<body>
+<canvas id="rect"></canvas>
+<script>
+    let rect=document.getElementById('rect');
+    if (rect.getContext('2d')){
+        var ctx=rect.getContext('2d');
+    }
+    let path1=new Path2D();
+    path1.rect(20,20,40,60);
+    
+    let path2=new Path2D(path1);
+    //零度沿x轴向右
+    path2.moveTo(60,100);
+    path2.arc(30,100,30,0,Math.PI*2,false);
+    
+    ctx.stroke(path2);
+    
+    let p=new Path2D('M10 10 h 80 v 80 h -80 Z');
+    ctx.stroke(p);
+</script>
+</body>
+</html>

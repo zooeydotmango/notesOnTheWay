@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>矩形canvas</title>
+</head>
+<body>
+<canvas id="rect"></canvas>
+<script>
+    let rect=document.getElementById('rect');
+    if (rect.getContext('2d')){
+        var ctx=rect.getContext('2d');
+    }
+    ctx.beginPath();
+    ctx.moveTo(0,0);
+    ctx.fillRect(10,10,50,60);
+    ctx.strokeRect(30,30,50,60);
+    ctx.clearRect(20,20,10,20);
+</script>
+</body>
+</html>

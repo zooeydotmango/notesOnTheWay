@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>线条canvas</title>
+</head>
+<body>
+<canvas id="rect"></canvas>
+<script>
+    let rect=document.getElementById('rect');
+    if (rect.getContext('2d')){
+        var ctx=rect.getContext('2d');
+    }
+    for (let i=0;i<3;i++){
+        ctx.beginPath();
+        ctx.moveTo(10+i*30,10);
+        ctx.lineTo(40+i*30,60);
+        ctx.lineTo(10+i*30,50);
+        switch(i){
+            case 0:
+                ctx.fill();
+            case 1:
+                ctx.closePath();
+                ctx.stroke();
+            case 2:
+                ctx.stroke();
+        }
+    } 
+</script>
+</body>
+</html>

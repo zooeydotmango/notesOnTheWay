@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>fillStyle & strokeStyle & transparency</title>
+</head>
+<body>
+<canvas id="rect" width="500" height="500"></canvas>
+<script>
+    let rect=document.getElementById('rect');
+    if (rect.getContext('2d')){
+        var ctx=rect.getContext('2d');
+    }
+    //fillStyle="";
+    for (let i=0;i<6;i++){
+        for (let j=0;j<6;j++){
+            ctx.beginPath();
+            ctx.fillStyle='rgb('+Math.floor(256-42.5*i)+','+Math.floor(256-42.5*j)+',0)';
+            ctx.fillRect(i*25,j*25,25,25);
+        } 
+    } 
+    //strokeStyle="";
+    for (let i=0;i<6;i++){
+        for (let j=0;j<6;j++){
+            ctx.beginPath();
+            ctx.strokeStyle='rgb('+Math.floor(256-42.5*i)+',0,'+Math.floor(256-42.5*j)+')';
+            ctx.arc(200+25*i,12.5+25*j,12.5,0,Math.PI*2);
+            ctx.stroke();
+        } 
+    } 
+    //transparency
+    //globalAlpha = transparencyValue范围从0到1
+    let backColor=['#FFDD00','#66CC00','#0099FF','#FF3300'];
+    let n=0;
+    for (let i=0;i<2;i++){
+        for (let j=0;j<2;j++){
+            ctx.beginPath();
+            ctx.fillStyle=backColor[n];
+            ctx.fillRect(0+75*i,200+75*j,75,75);
+            n++;
+        }
+    } 
+    
+    ctx.fillStyle='white';
+    ctx.globalAlpha=0.2;
+    
+    for (let i=0;i<7;i++){
+        ctx.beginPath();
+        ctx.arc(75,275,10+10*i,0,Math.PI*2);
+        ctx.fill();
+    } 
+    
+</script>
+</body>
+</html>
